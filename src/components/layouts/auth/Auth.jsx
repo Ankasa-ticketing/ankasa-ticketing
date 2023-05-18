@@ -1,20 +1,23 @@
-import React from 'react'
-import Hero from '../../elements/hero/Hero'
+// import React from 'react'
+import Hero from "../../elements/hero/Hero";
+import { Col, Row } from "react-bootstrap";
 
-const Auth = ({ title, children }) => {
-    return (
-        <>
-            <div className="flex w-screen">
-                {/* kiri */}
-                <Hero />
+const Auth = ({ children }) => {
+  return (
+    <>
+      <Row>
+        <Col md={6} className="d-none d-md-block">
+          <Hero />
+        </Col>
+        <Col
+          md={6}
+          className="d-flex justify-content-center align-items-center"
+        >
+          {children}
+        </Col>
+      </Row>
+    </>
+  );
+};
 
-                {/* kanan */}
-                <div className="w-1/2 flex justify-center items-center">
-                    {children}
-                </div>
-            </div>
-        </>
-    )
-}
-
-export default Auth
+export default Auth;

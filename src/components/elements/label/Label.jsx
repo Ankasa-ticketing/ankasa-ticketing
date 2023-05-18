@@ -1,11 +1,5 @@
-import React from 'react'
-
 const Label = ({ children }) => {
-    return (
-        <h1 className="text-base font-semibold">
-            {children}
-        </h1>
-    )
-}
+  return <p className="m-2 fw-semibold">{children}</p>;
+};
 
-export default Label
+export default Label;
