@@ -31,7 +31,7 @@ const FormLogin = () => {
         <div className="my-3" style={{ fontFamily: "Lato" }}>
           <p className="text-center mb-0">Did you forgot your password?</p>
           <Link
-            to="/forgotedPassword"
+            to="/forgoted-password"
             style={{ color: "#2395FF" }}
             className="text-decoration-none d-flex justify-content-center"
           >
