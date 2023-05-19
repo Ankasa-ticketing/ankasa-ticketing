@@ -1,5 +1,13 @@
+import NavigationBar from "../src/components/fragments/Navbar";
+import Footer from "./components/fragments/Footer";
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <NavigationBar />
+      <Footer />
+    </>
+  );
 };
 
 export default App;
