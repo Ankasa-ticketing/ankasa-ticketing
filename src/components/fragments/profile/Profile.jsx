@@ -1,5 +1,6 @@
 import React from 'react'
 import DropdownCity from '../../elements/dropdown_city/DropdownCity';
+import InputFormProfile from '../../elements/input_form_profile/InputFormProfile';
 
 const Profile = () => {
     return (
@@ -7,49 +8,33 @@ const Profile = () => {
             <div className="py-8 shadow-lg px-7">
                 <p className="font-[500px] tracking-wide text-blue-500 uppercase">P r o f i l e</p>
 
-                <p className='text-2xl font-semibold'>Profile</p>
+                <p className='mt-1 text-2xl font-semibold'>Profile</p>
 
-                <form className='flex flex-col'>
+                <form className='flex flex-col mt-4'>
                     <div className="flex justify-between">
 
                         <div className='flex flex-col space-y-3'>
                             <p className='text-base font-semibold'>Contact</p>
 
-                            <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
-                                <p className='text-[#9B96AB] text-sm'>Email</p>
-                                <input type="text" value={"user@mail.com"} className='text-base focus:outline-none' />
-                            </div>
+                            {/* InputFormprofile */}
+                            <InputFormProfile type={'text'} label={'Email'} value={"user@mail.com"} />
 
-                            <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
-                                <p className='text-[#9B96AB] text-sm'>Phone Number</p>
-                                <input type="text" value={"+62099856757"} className='text-base focus:outline-none' />
-                            </div>
+                            <InputFormProfile type={'text'} label={'Phone Number'} value={"+62099856757"} />
                         </div>
 
                         <div className='flex flex-col space-y-3'>
                             <p className='text-base font-semibold'>Biodata</p>
 
-                            <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
-                                <p className='text-[#9B96AB] text-sm'>Fullname</p>
-                                <input type="text" value={"Fahmi Hadi"} className='text-base focus:outline-none' />
-                            </div>
+                            <InputFormProfile type={'text'} label={'Fullname'} value={"Fahmi Hadi"} />
 
                             <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
                                 <p className='text-[#9B96AB] text-sm'>City</p>
-
                                 <DropdownCity />
                             </div>
 
-                            <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
-                                <p className='text-[#9B96AB] text-sm'>Address</p>
-                                <input type="text" value={"Medan, Indonesi"} className='text-base focus:outline-none' />
-                            </div>
+                            <InputFormProfile type={'text'} label={'Address'} value={"Medan, Indonesi"} />
 
-                            <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
-                                <p className='text-[#9B96AB] text-sm'>Post Code</p>
-                                <input type="number" value={"42111"} className='text-base focus:outline-none' />
-                            </div>
-
+                            <InputFormProfile type={'number'} label={'Post Code'} value={"42111"} />
                         </div>
                     </div>
 
