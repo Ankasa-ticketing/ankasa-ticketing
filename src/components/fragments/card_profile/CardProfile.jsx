@@ -14,7 +14,7 @@ import CardProfileMenu from '../../elements/card_profile_menu/CardProfileMenu';
 const CardProfile = () => {
     return (
         <>
-            <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-md w-fit px-7">
+            <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-lg w-fit px-7">
                 {/* IconAvatar */}
                 <IconAvatar src={photo} />
 

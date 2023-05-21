@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
+import UserProfile from './pages/UserProfile'
 import Register from "./pages/Register";
 import ForgotedPassword from "./pages/ForgotedPassword";
 import DetailBooking from "./pages/DetailBooking";
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/detail-booking",
     element: <DetailBooking />,
+  },
+  {
+    path: "/profile",
+    element: <UserProfile />,
   },
 ]);
 
