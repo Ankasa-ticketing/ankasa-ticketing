@@ -1,14 +1,14 @@
-import React from 'react'
-import Profile from './components/fragments/profile/Profile'
-import CardProfile from './components/fragments/card_profile/CardProfile'
+import NavigationBar from "../src/components/fragments/Navbar";
+import Footer from "./components/fragments/Footer";
 
 const App = () => {
   return (
-    <div className="flex justify-between p-12">
-      <CardProfile />
-      <Profile />
-    </div>
-  )
-}
+    <>
+      <NavigationBar />
+      <Footer />
+    </>
+  );
+};
 
-export default App
+
+export default App;
