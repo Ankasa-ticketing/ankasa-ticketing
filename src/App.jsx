@@ -1,9 +1,11 @@
-import FlightDetail from "./pages/FlightDetail";
+// import FlightDetail from "./pages/FlightDetail";
+import SearchResult from "./pages/SearchResult";
 
 const App = () => {
   return (
     <>
-      <FlightDetail />
+      {/* <FlightDetail /> */}
+      <SearchResult />
     </>
   );
 };
