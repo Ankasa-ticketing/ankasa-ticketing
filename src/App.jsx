@@ -1,14 +1,13 @@
-import NavigationBar from "../src/components/fragments/Navbar";
-import Footer from "./components/fragments/Footer";
+import FlightDetail from "./pages/FlightDetail/FlightDetail";
+
+FlightDetail;
 
 const App = () => {
   return (
     <>
-      <NavigationBar />
-      <Footer />
+      <FlightDetail />
     </>
   );
 };
-
 
 export default App;
