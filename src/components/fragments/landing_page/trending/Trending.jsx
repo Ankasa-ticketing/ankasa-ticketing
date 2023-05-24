@@ -27,7 +27,7 @@ const Trending = () => {
 
         <Col lg={7} className="d-flex justify-content-end trend">
           <Card
-            className="mx-2 shadow d-sm-none d-md-block card1"
+            className="mx-2 card-trend shadow d-sm-none d-md-block card1"
             style={{ width: "15rem", borderRadius: "10px" }}
           >
             <div className="mt-3  ">
@@ -59,7 +59,7 @@ const Trending = () => {
             </Card.Body>
           </Card>
           <Card
-            className="mx-2 shadow d-none d-sm-block"
+            className="mx-2 card-trend shadow d-none d-sm-block"
             style={{ width: "15rem", borderRadius: "10px" }}
           >
             <div className="mt-3  ">
@@ -91,7 +91,7 @@ const Trending = () => {
             </Card.Body>
           </Card>
           <Card
-            className="mx-2 shadow d-none d-sm-block"
+            className="mx-2 card-trend shadow d-none d-sm-block"
             style={{ width: "15rem", borderRadius: "10px" }}
           >
             <div className="mt-3  ">
@@ -125,7 +125,7 @@ const Trending = () => {
         </Col>
         <Col lg={5} className="d-flex justify-content-start trend2 ">
           <Card
-            className="mx-2 shadow d-none d-sm-block "
+            className="mx-2 card-trend shadow d-none d-sm-block "
             style={{ width: "15rem", borderRadius: "10px" }}
           >
             <div className="mt-3  ">
@@ -157,7 +157,7 @@ const Trending = () => {
             </Card.Body>
           </Card>
           <Card
-            className="mx-2 shadow d-none d-sm-block "
+            className="mx-2 card-trend shadow d-none d-sm-block "
             style={{ width: "15rem", borderRadius: "10px" }}
           >
             <div className="mt-3  ">
