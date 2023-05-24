@@ -39,7 +39,7 @@ const Profile = () => {
                     </div>
 
                     <div className="flex items-end justify-end mt-12">
-                        <button className='bg-blue-500 text-white py-[13px] px-[54px] font-semibold rounded-xl'>Save</button>
+                        <button className='bg-blue-500 text-white py-[13px] px-[54px] font-semibold rounded-xl shadow-md hover:bg-blue-600'>Save</button>
                     </div>
 
                 </form>

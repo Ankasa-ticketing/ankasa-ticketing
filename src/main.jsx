@@ -9,6 +9,7 @@ import UserProfile from './pages/UserProfile'
 import Register from "./pages/Register";
 import ForgotedPassword from "./pages/ForgotedPassword";
 import DetailBooking from "./pages/DetailBooking";
+import Dashboard from "./pages/admin/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <UserProfile />,
   },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
