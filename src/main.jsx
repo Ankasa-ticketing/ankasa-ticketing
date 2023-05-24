@@ -8,6 +8,7 @@ import UserProfile from "./pages/UserProfile";
 import Register from "./pages/Register";
 import ForgotedPassword from "./pages/ForgotedPassword";
 import DetailBooking from "./pages/DetailBooking";
+import LandingPage from "./pages/LandingPage";
 import FlightDetail from "./pages/FlightDetail/FlightDetail";
 import Dashboard from "./pages/admin/Dashboard";
 
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
     element: <UserProfile />,
   },
   {
+    path: "/home",
+    element: <LandingPage />,
+  },
     path: "/admin/dashboard",
     element: <Dashboard />
   }
