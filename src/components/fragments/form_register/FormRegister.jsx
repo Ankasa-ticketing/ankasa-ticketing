@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap";
-import Label from "../../elements/label/Label";
+import LabelName from "../../elements/labelname/LabelName";
 import "./FormRegister.css";
 import Logo from "../../elements/logo/Logo";
 import PrimaryButton from "../../elements/button/ButtonSubmit";
@@ -69,7 +69,7 @@ const FormRegister = () => {
             name="isChecked"
             aria-label="Checkbox for agreeing to terms and conditions"
           />
-          <Label htmlFor="isChecked">Accept terms and conditions</Label>
+          <LabelName htmlFor="isChecked">Accept terms and conditions</LabelName>
         </Form.Group>
 
         <div style={{ borderBottom: "1px solid black" }}></div>
