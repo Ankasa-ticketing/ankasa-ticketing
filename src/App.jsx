@@ -1,13 +1,5 @@
-import FlightDetail from "./pages/FlightDetail/FlightDetail";
-
-FlightDetail;
-
 const App = () => {
-  return (
-    <>
-      <FlightDetail />
-    </>
-  );
+  return <></>;
 };
 
 export default App;
