@@ -1,0 +1,30 @@
+.profile-slide-img {
+  border-radius: 50%;
+  border: 8px solid #2395ff;
+  width: 100px;
+  height: 100px;
+}
+
+.carousel-indicators [data-bs-target] {
+  box-sizing: none !important;
+  flex: none !important;
+  width: none !important;
+  height: none !important;
+  padding: none !important;
+  margin-right: none !important;
+  margin-left: none !important;
+  text-indent: none !important;
+  cursor: none !important;
+  background-color: transparent !important;
+  background-clip: none !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  opacity: none !important;
+  transition: none !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: none !important;
+}
