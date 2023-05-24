@@ -41,9 +41,10 @@ const router = createBrowserRouter([
     path: "/home",
     element: <LandingPage />,
   },
+  {
     path: "/admin/dashboard",
-    element: <Dashboard />
-  }
+    element: <Dashboard />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
