@@ -2,11 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
+import UserProfile from "./pages/UserProfile";
 import Register from "./pages/Register";
 import ForgotedPassword from "./pages/ForgotedPassword";
+import DetailBooking from "./pages/DetailBooking";
+import LandingPage from "./pages/LandingPage";
+import FlightDetail from "./pages/FlightDetail/FlightDetail";
+import Dashboard from "./pages/admin/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +26,24 @@ const router = createBrowserRouter([
     element: <ForgotedPassword />,
   },
   {
-    path: "/app",
-    element: <App />,
+    path: "/flight-detail",
+    element: <FlightDetail />,
+  },
+  {
+    path: "/detail-booking",
+    element: <DetailBooking />,
+  },
+  {
+    path: "/profile",
+    element: <UserProfile />,
+  },
+  {
+    path: "/home",
+    element: <LandingPage />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
   },
 ]);
 
