@@ -3,20 +3,12 @@ import { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 
 const city = [
-    "Jakarta",
-    "Bandung",
-    "Surabaya",
-    "Solo",
-    "Bekasi",
-    "Denpasar",
-    "Medan",
-    "Palembang",
-    "Pekanbaru",
-    "Padang",
-    "Palangkaraya"
+    "Garuda",
+    "Air Asia",
+    "Batik Air",
 ]
 
-const DropdownCity = () => {
+const DropdownAirlines = () => {
     const [option, setOption] = useState(false)
     const [city, setCity] = useState("")
 
@@ -59,4 +51,4 @@ const Options = ({ setter }) => {
     )
 }
 
-export default DropdownCity
+export default DropdownAirlines
