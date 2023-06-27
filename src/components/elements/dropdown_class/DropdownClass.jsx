@@ -9,7 +9,7 @@ const city = [
     "Ekonomi",
 ]
 
-const DropdownClass = () => {
+const DropdownClass = ({ setter }) => {
     const [option, setOption] = useState(false)
     const [city, setCity] = useState("")
 
@@ -19,6 +19,7 @@ const DropdownClass = () => {
 
     const handleOptions = (newCity) => {
         setCity(newCity)
+        setter(newCity)
         setOption(false)
     }
 

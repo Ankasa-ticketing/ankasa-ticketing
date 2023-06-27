@@ -1,8 +1,16 @@
 import React from 'react'
 
-const TimePicker = ({ children }) => {
+const TimePicker = ({ children, setHour, setMinute }) => {
     const hour = Array.from({ length: 24 });
     const minute = Array.from({ length: 61 });
+
+    const handleOnClickHour = (value) => {
+        setHour(value)
+    }
+
+    const handleOnClickMinute = (value) => {
+        setMinute(value)
+    }
 
     return (
         <>
@@ -13,9 +21,9 @@ const TimePicker = ({ children }) => {
                         {
                             hour.map((_, i) => {
                                 if (i < 10) {
-                                    return <><option key={i} value={`0${i}`}>0{i}</option></>
+                                    return <><option key={i} value={`0${i}`} onClick={() => handleOnClickHour(`0${i}`)}>0{i}</option></>
                                 }
-                                return <option key={i} value={i}>{i}</option>
+                                return <option key={i} value={i} onClick={() => handleOnClickHour(`${i}`)}>{i}</option>
                             })
                         }
                     </select>
@@ -24,9 +32,9 @@ const TimePicker = ({ children }) => {
                         {
                             minute.map((_, i) => {
                                 if (i < 10) {
-                                    return <><option key={i} value={`0${i}`}>0{i}</option></>
+                                    return <><option key={i} value={`0${i}`} onClick={() => handleOnClickMinute(`0${i}`)}>0{i}</option></>
                                 }
-                                return <option key={i} value={i}>{i}</option>
+                                return <option key={i} value={i} onClick={() => handleOnClickMinute(`${i}`)}>{i}</option>
                             })
                         }
                     </select>

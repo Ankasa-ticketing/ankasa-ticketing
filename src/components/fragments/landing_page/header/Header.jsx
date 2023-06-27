@@ -9,18 +9,19 @@ import Vector from "../../../../assets/images/Vector.png";
 import plane from "../../../../assets/images/plane.png";
 import round from "../../../../assets/images/round.png";
 import right from "../../../../assets/images/right.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <Container className="container-fluid mb-5 mt-5">
+    <Container className="mt-5 mb-5 container-fluid">
       <Row className="mt-5 row" style={{}}>
-        <Col lg={6} className="text-start header-col mt-5 col">
+        <Col lg={6} className="mt-5 text-start header-col col">
           <br />
-          <div className="d-flex flex-column w-75 mx-auto ">
+          <div className="mx-auto d-flex flex-column w-75 ">
             <h1
-              className=" mt-5"
+              className="mt-5 "
               style={{ fontSize: "3.380rem", fontWeight: "600" }}
             >
               Find Your <span style={{ color: "#2395FF" }}>Flight</span>
@@ -40,15 +41,15 @@ const Header = () => {
             src={header1}
             alt=""
             className="mt-5 img-fluid img "
-            // style={{ width: "1000px" }}
+          // style={{ width: "1000px" }}
           />
         </Col>
         <Col lg={6} className="header-col d-none d-sm-block ">
           <Col lg={12} className="d-flex justify-content-end ">
-            <img src={header2} alt="" className="img-fluid img2 mb-5" />
+            <img src={header2} alt="" className="mb-5 img-fluid img2" />
           </Col>
           <Col lg={12} className="mt-5">
-            <img src={header3} alt="" className="mt-5 w-25 mx-auto img3" />
+            <img src={header3} alt="" className="mx-auto mt-5 w-25 img3" />
           </Col>
         </Col>
         <Col
@@ -57,14 +58,14 @@ const Header = () => {
         >
           <div className="me-5">
             <Card
-              className="me-5 shadow-lg card-1"
+              className="shadow-lg me-5 card-1"
               style={{
                 width: "450px",
                 right: "65px",
                 top: "170px",
                 borderRadius: "20px",
               }}
-              // style={{ height: "700px", width: "500px", }}
+            // style={{ height: "700px", width: "500px", }}
             >
               <Card.Body className="me-5">
                 <Col md={12} className="ms-3">
@@ -73,7 +74,7 @@ const Header = () => {
                   <Row>
                     <Col md={8} className="text-start w-50">
                       <p
-                        className="fw-bold blue py-2"
+                        className="py-2 fw-bold blue"
                         style={{ color: "#2395FF" }}
                       >
                         Recently searched
@@ -85,7 +86,7 @@ const Header = () => {
                   </Row>
                   <Row>
                     <Col md={12}>
-                      <Card className=" mx-auto shadow">
+                      <Card className="mx-auto shadow ">
                         <Card.Body>
                           <Row>
                             <Col md={6} className="text-start">
@@ -119,8 +120,8 @@ const Header = () => {
                             <img
                               src={plane}
                               alt=""
-                              className="me-3 ms-4 h-25 mt-1"
-                              // style={{ width: "20%" }}
+                              className="mt-1 me-3 ms-4 h-25"
+                            // style={{ width: "20%" }}
                             />
                             <span className="fw-semibold"> One Way</span>
                           </a>
@@ -130,12 +131,12 @@ const Header = () => {
                             <img
                               src={round}
                               alt=""
-                              className=" ms-4 me-2 h-25 mt-1"
+                              className="mt-1 ms-4 me-2 h-25"
                             />
                             <span className="ms-2 fw-semibold">Round Trip</span>
                           </a>
                         </Col>
-                        <Col md={12} className=" mt-3 mx-auto">
+                        <Col md={12} className="mx-auto mt-3 ">
                           <p className="text-muted fw-semibold">Departure</p>
                           <Form.Control
                             type="date"
@@ -148,7 +149,7 @@ const Header = () => {
                         </Col>
                       </Row>
                       <Row>
-                        <Col md={12} className=" mt-3 mx-auto">
+                        <Col md={12} className="mx-auto mt-3 ">
                           <p className="text-muted fw-semibold">
                             How Many Person ?
                           </p>
@@ -160,12 +161,12 @@ const Header = () => {
                           <Form.Control type="number" placeholder="0" />
                         </Col>
                       </Row>
-                      <Col md={12} className=" mt-3 mx-auto">
+                      <Col md={12} className="mx-auto mt-3 ">
                         <p className="text-muted fw-semibold">
                           Which Class Do You Want ?
                         </p>
                       </Col>
-                      <Col md={12} className="mt-4 mx-auto">
+                      <Col md={12} className="mx-auto mt-4">
                         <Form className="d-flex">
                           <Form.Check
                             inline
@@ -196,11 +197,12 @@ const Header = () => {
                   <Col md={12} className="mt-4 ">
                     <a
                       href=""
-                      className="btn btn-primary w-75 d-flex justify-content-center mx-auto mb-3 shadow"
+                      className="mx-auto mb-3 shadow btn btn-primary w-75 d-flex justify-content-center"
                       style={{ height: "2.5rem" }}
                     >
-                      <h6 className="me-5 mt-1">SEARCH FLIGHT</h6>
-                      <img src={right} alt="" className="h-50 mt-2 ms-4" />
+                      {/* <Link to={'/tickets'}><h6 className="mt-1 me-5">SEARCH FLIGHT</h6></Link> */}
+                      <h6 className="mt-1 me-5"><Link to={'/tickets'}>SEARCH FLIGHT</Link></h6>
+                      <img src={right} alt="" className="mt-2 h-50 ms-4" />
                     </a>
                   </Col>
                 </Col>

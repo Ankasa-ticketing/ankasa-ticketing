@@ -10,8 +10,10 @@ import ButtonSelectPhoto from '../../elements/button_select_photo/ButtonSelectPh
 import IconAvatar from '../../elements/icon_avatar/IconAvatar';
 import CreditCard from '../../elements/credit_card/CreditCard';
 import CardProfileMenu from '../../elements/card_profile_menu/CardProfileMenu';
+import { useNavigate } from 'react-router-dom';
 
 const CardProfile = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-lg w-fit px-7">
@@ -55,9 +57,14 @@ const CardProfile = () => {
                         <IoMdSettings />
                     </CardProfileMenu>
 
-                    <CardProfileMenu label={'Logout'} color={'text-red-500'}>
-                        <HiOutlineLogout />
-                    </CardProfileMenu>
+                    <div onClick={() => {
+                        localStorage.clear()
+                        navigate("/login")
+                    }}>
+                        <CardProfileMenu label={'Logout'} color={'text-red-500'}>
+                            <HiOutlineLogout />
+                        </CardProfileMenu>
+                    </div>
                 </div>
             </div>
         </>

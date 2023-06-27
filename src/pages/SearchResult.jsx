@@ -1,8 +1,15 @@
 import vector2 from '../assets/logo/vector 02.svg'
 import arrow from '../assets/logo/arrow.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import CardTicket from '../components/fragments/card_ticket/CardTicket'
+import NavigationBar from '../components/fragments/Navbar'
+import useTicket from '../states/useTicket'
 
 const SearchResult = () => {
+    const fetchTickets = useTicket(state => state.fetchTickets)
+    const airlines = useTicket(state => state.airlines)
+    const loading = useTicket(state => state.loading)
+
     const [showDetail, setShowDetails] = useState(false)
     const [showTransit, setShowTransit] = useState(false)
 
@@ -14,8 +21,13 @@ const SearchResult = () => {
         setShowTransit(!showTransit)
     }
 
+    useEffect(() => {
+        fetchTickets(localStorage.getItem('token'))
+    }, [])
+
     return (
         <>
+            <NavigationBar />
             <div className="bg-blue-500 bg-[url('/src/assets/logo/blueplane.svg')] bg-no-repeat h-44 rounded-b-lg">
                 <div className="flex w-full justify-between pt-[55px] px-10 pb-10 font-[Poppins]">
                     <div>
@@ -31,7 +43,7 @@ const SearchResult = () => {
                         </div>
                     </div>
 
-                    <div className="flex gap-5 items-center mr-32">
+                    <div className="flex items-center gap-5 mr-32">
                         <div>
                             <h5 className="text-white">Change search</h5>
                         </div>
@@ -40,12 +52,12 @@ const SearchResult = () => {
             </div>
             <div className="flex justify-between w-full pl-10 pr-10 gap-10 items-center bg-[#F5F6FA] px-6 font-[Poppins] pt-10">
                 <div className="flex">
-                    <div className="flex gap-32 items-center">
+                    <div className="flex items-center gap-32">
                         <h4>Filter</h4>
                         <p className="m-0">Reset</p>
                     </div>
                 </div>
-                <div className="w-full justify-between flex items-center">
+                <div className="flex items-center justify-between w-full">
                     <div>
                         <div className="flex items-center gap-2">
                             <h4>Select Ticket</h4>
@@ -64,7 +76,7 @@ const SearchResult = () => {
             <div className="flex bg-[#F5F6FA]">
                 <div className="flex flex-auto w-8 bg-[#F5F6FA] h-[1250px]">
                     <div className="rounded-2xl bg-white w-[400px] ml-24  m-[30px] shadow">
-                        <div className="flex justify-between w-full pr-5 pl-5 pt-4">
+                        <div className="flex justify-between w-full pt-4 pl-5 pr-5">
                             <div className="font-bold text-[16px]">Transit</div>
                             <button onClick={transit}>
                                 <img
@@ -76,15 +88,15 @@ const SearchResult = () => {
                         </div>
                         {showTransit ? (
                             <>
-                                <div className="w-full flex justify-between pr-5 pl-5 mt-10">
+                                <div className="flex justify-between w-full pl-5 pr-5 mt-10">
                                     <p>Direct</p>
                                     <input type="checkbox" name="" id="" />
                                 </div>
-                                <div className="w-full flex justify-between  pr-5 pl-5">
+                                <div className="flex justify-between w-full pl-5 pr-5">
                                     <p>Direct</p>
                                     <input type="checkbox" name="" id="" />
                                 </div>
-                                <div className="w-full flex justify-between  pr-5 pl-5">
+                                <div className="flex justify-between w-full pl-5 pr-5">
                                     <p>Direct</p>
                                     <input type="checkbox" name="" id="" />
                                 </div>
@@ -93,7 +105,7 @@ const SearchResult = () => {
                         ) : (
                             <div></div>
                         )}
-                        <div className="flex justify-between w-full pr-5 pl-5 pt-4">
+                        <div className="flex justify-between w-full pt-4 pl-5 pr-5">
                             <div className="font-bold text-[16px]">Transit</div>
 
                             <img
@@ -102,15 +114,15 @@ const SearchResult = () => {
                                 alt=""
                             />
                         </div>
-                        <div className="w-full flex justify-between pr-5 pl-5 mt-10">
+                        <div className="flex justify-between w-full pl-5 pr-5 mt-10">
                             <p>Direct</p>
                             <input type="checkbox" name="" id="" />
                         </div>
-                        <div className="w-full flex justify-between  pr-5 pl-5">
+                        <div className="flex justify-between w-full pl-5 pr-5">
                             <p>Direct</p>
                             <input type="checkbox" name="" id="" />
                         </div>
-                        <div className="w-full flex justify-between  pr-5 pl-5">
+                        <div className="flex justify-between w-full pl-5 pr-5">
                             <p>Direct</p>
                             <input type="checkbox" name="" id="" />
                         </div>
@@ -118,540 +130,27 @@ const SearchResult = () => {
                     </div>
                 </div>
                 <div className="flex flex-auto w-96 pt-[30px] flex-col gap-10 bg-[#F5F6FA]">
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center pt-3">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
-                        <div className="flex items-center">
-                            <img
-                                src="/src/assets/images/garuda-indonesia.svg"
-                                className="w-32"
-                                alt=""
-                            />
-                            <p>Garuda Indonesia</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    IDN
-                                    <div>12:33</div>
-                                </div>
-                                <div>
-                                    <img
-                                        src="/src/assets/images/plane-mini.png"
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    JPN
-                                    <div>15:21</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>3 hours 11 minutes</div>
-                                    <div className="text-center">1 transit</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex gap-3">
-                                    <img
-                                        src="/src/assets/images/bag.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/food.svg"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="/src/assets/images/wifi.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-5 items-center">
-                                <div>$214,00/pax</div>
-                                <div>
-                                    <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                        Select
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3">
-                                <p className="m-0">View Details</p>
-                                <button onClick={setDetail}>
-                                    <img
-                                        src="/src/assets/images/btnback.svg"
-                                        className="w-5"
-                                    />
-                                </button>
-                            </div>
-                            {showDetail ? (
-                                <div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit
-                                        in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint
-                                        occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim
-                                        id est laborum.
-                                    </p>
-                                </div>
-                            ) : (
-                                <div></div>
-                            )}
-                        </div>
-                    </div>
+
+                    {
+                        airlines.map((item) => (
+                            <>
+                                <CardTicket
+                                    key={item.id}
+                                    airline={item.name}
+                                    from_location={item.from_location}
+                                    destination={item.destination}
+                                    image={item.image}
+                                    departure={item.departure_time}
+                                    arrived={item.time_arrived}
+                                />
+                            </>
+                        ))
+                    }
+
+
+
+
+
                 </div>
             </div>
         </>
