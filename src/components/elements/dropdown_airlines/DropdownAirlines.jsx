@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import useAirlineState from '../../../states/useAirlineState';
 
-const DropdownAirlines = () => {
+const DropdownAirlines = ({ setter }) => {
     const [option, setOption] = useState(false)
     const [city, setCity] = useState("")
 
@@ -12,7 +12,8 @@ const DropdownAirlines = () => {
     }
 
     const handleOptions = (newCity) => {
-        setCity(newCity)
+        setCity(newCity.name)
+        setter(newCity.id)
         setOption(false)
     }
 
@@ -39,7 +40,7 @@ const Options = ({ setter }) => {
     }
 
     useEffect(() => {
-        const jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZnVsbG5hbWUiOiJmYWhtaSBoYWRpIiwiZW1haWwiOiJmYWhtaUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODQ5MTEzMzMsImV4cCI6MTY4NDk5NzczM30.S_bx55aLzjdT4yfwDUHMUrglUbs08wg2Np1O95T03gA'
+        const jwt = localStorage.getItem('token')
         fecthAirlines(jwt)
     }, [])
     console.log(data);
@@ -48,7 +49,7 @@ const Options = ({ setter }) => {
         <div className='absolute right-0 px-5 overflow-auto bg-white shadow-md touch-pan-y h-52 w-fit'>
             {
                 data.map((item) => (
-                    <p key={item.id} onClick={() => hanldeOnClick(item.name)} className='hover:cursor-pointer'>{item.name}</p>
+                    <p key={item.id} onClick={() => hanldeOnClick(item)} className='hover:cursor-pointer'>{item.name}</p>
                 ))
             }
         </div>

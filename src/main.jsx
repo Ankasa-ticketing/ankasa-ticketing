@@ -11,6 +11,8 @@ import DetailBooking from "./pages/DetailBooking";
 import LandingPage from "./pages/LandingPage";
 import FlightDetail from "./pages/FlightDetail/FlightDetail";
 import Dashboard from "./pages/admin/Dashboard";
+import SearchResult from "./pages/SearchResult";
+import MyBooking from "./pages/MyBooking";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,16 @@ const router = createBrowserRouter([
     element: <DetailBooking />,
   },
   {
+    path: "/my-booking",
+    element: <MyBooking />,
+  },
+  {
     path: "/profile",
     element: <UserProfile />,
+  },
+  {
+    path: "/tickets",
+    element: <SearchResult />,
   },
   {
     path: "/home",

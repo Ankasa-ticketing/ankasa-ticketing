@@ -48,7 +48,7 @@ function NavigationBar() {
               </div>
             </Form>
             <Link
-              to="/"
+              to="/tickets"
               className="text-decoration-none fw-bold"
               style={{ fontFamily: "Poopin", color: "#414141" }}
             >
@@ -57,7 +57,7 @@ function NavigationBar() {
               </Nav.Link>
             </Link>
             <Link
-              to="/"
+              to="/my-booking"
               className="text-decoration-none fw-bold"
               style={{ fontFamily: "Poopin", color: "#414141" }}
             >

@@ -5,10 +5,10 @@ import NavigationBar from "../../components/fragments/Navbar";
 import Footer from "../../components/fragments/Footer";
 import garuda from "../../assets/logo/garuda.svg";
 import pesawat from "../../assets/logo/pesawat.svg";
-import Label from "../../components/elements/label/Label";
 import DropdownCity from "../../components/elements/dropdown_city/DropdownCity";
 import DropdownTitle from "../../components/elements/dropdown_title/DropdownTitle";
 import InputFormProfile from "../../components/elements/input_form_profile/InputFormProfile";
+import LabelName from "../../components/elements/labelname/LabelName";
 
 const FlightDetail = () => {
   return (
@@ -18,7 +18,7 @@ const FlightDetail = () => {
       </div>
       <Row>
         <div
-          className="position-relative text-center w-100 p-0 "
+          className="p-0 text-center position-relative w-100 "
           style={{
             backgroundColor: "#2395FF",
             height: "174px",
@@ -41,12 +41,12 @@ const FlightDetail = () => {
           </Row>
         </div>
       </Row>
-      <div className="position-absolute w-100" style={{ top: "220px" }}>
+      <div className="position-absolute w-100" style={{ top: "220px", padding: "0 32px" }}>
         <Container>
           <Row>
             <Col xs={12} sm={8} md={8}>
               <div
-                className="card shadow"
+                className="shadow card"
                 style={{ height: "415px", borderRadius: "15px" }}
               >
                 <div className="card-body">
@@ -78,7 +78,7 @@ const FlightDetail = () => {
             </Col>
             <Col xs={12} sm={4} md={4}>
               <div
-                className="card shadow"
+                className="shadow card"
                 style={{ height: "375px", borderRadius: "15px" }}
               >
                 <div className="card-body">
@@ -91,7 +91,7 @@ const FlightDetail = () => {
                     </Col>
                   </Row>
                   <Row className="mt-3 align-items-center">
-                    <Col md={12} className="d-flex gap-5">
+                    <Col md={12} className="gap-5 d-flex">
                       <p className="m-0 fw-bold">Medan(IDN)</p>
                       <img src={pesawat} alt="" />
                       <p className="m-0 fw-bold">Tokyo (JPN)</p>
@@ -114,11 +114,11 @@ const FlightDetail = () => {
                     style={{ color: "#2395FF", fontFamily: "Poppins" }}
                     className="my-3"
                   >
-                    <Col md={8} className="d-flex gap-3">
+                    <Col md={8} className="gap-3 d-flex">
                       <Form.Check type="radio" />{" "}
                       <p className="m-0">Refundable</p>
                     </Col>
-                    <Col md={8} className="d-flex gap-3">
+                    <Col md={8} className="gap-3 d-flex">
                       <Form.Check type="radio" />{" "}
                       <p className="m-0">Can Reschedule</p>
                     </Col>
@@ -127,7 +127,7 @@ const FlightDetail = () => {
                     <hr />
                     <Col
                       md={12}
-                      className="d-flex justify-content-between my-4"
+                      className="my-4 d-flex justify-content-between"
                     >
                       <p className="fw-bold fs-6">Total Payment</p>
                       <p className="fs-5" style={{ color: "#2395FF" }}>
@@ -142,10 +142,10 @@ const FlightDetail = () => {
         </Container>
         <Container>
           <h3 className="my-5">Passenger Detail</h3>
-          <Row className=" my-5">
+          <Row className="my-5 ">
             <Col md={6}>
               <div
-                className="card shadow"
+                className="shadow card"
                 style={{ height: "415px", borderRadius: "15px" }}
               >
                 <div className="card-body">
@@ -185,7 +185,7 @@ const FlightDetail = () => {
             <h3 className="mb-5">Passenger Detail</h3>
             <Col md={6}>
               <div
-                className="card shadow"
+                className="shadow card"
                 style={{ height: "150px", borderRadius: "15px" }}
               >
                 <div className="card-body">
@@ -204,7 +204,7 @@ const FlightDetail = () => {
                         style={{ fontFamily: "Lato" }}
                         className="fs-5 fw-bold"
                       >
-                        <Label htmlFor="isChecked">Travel Insurance</Label>
+                        <LabelName>Travel Insurance</LabelName>
                       </div>
                     </Form.Group>
                     <div className="d-flex align-items-center">

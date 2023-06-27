@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../../assets/logo/Facebook.png";
 import google from "../../../assets/logo/Google.png";
 import useRegisterUser from "../../../states/useRegisterUser";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useLoginUser from "../../../states/useLoginUser";
 
 const FormLogin = () => {
@@ -14,17 +14,34 @@ const FormLogin = () => {
   const login = useLoginUser(state => state.login)
   const loading = useLoginUser(state => state.loading)
 
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const role = atob(localStorage.getItem('role'))
+    // console.log(role);
+    if (token) {
+      switch (role) {
+        case '"admin"':
+          navigate('/admin/dashboard')
+          break;
+        case '"user"':
+          navigate('/home')
+          break;
+        default:
+          break;
+      }
+    }
+  },)
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
 
     login({ email, password })
-    navigate("/home")
+    // navigate("/home")
   }
 
   if (loading) {
