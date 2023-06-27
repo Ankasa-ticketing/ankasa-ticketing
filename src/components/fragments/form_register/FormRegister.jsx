@@ -62,6 +62,7 @@ const FormRegister = () => {
         </Form.Group>
 
         <PrimaryButton>Sign Up</PrimaryButton>
+
         <Form.Group className="mb-3 d-flex" controlId="formBasicCheckbox">
           <input
             type="checkbox"

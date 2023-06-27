@@ -41,7 +41,7 @@ const FlightDetail = () => {
           </Row>
         </div>
       </Row>
-      <div className="position-absolute w-100" style={{ top: "220px" }}>
+      <div className="position-absolute w-100" style={{ top: "220px", padding: "0 32px" }}>
         <Container>
           <Row>
             <Col xs={12} sm={8} md={8}>
