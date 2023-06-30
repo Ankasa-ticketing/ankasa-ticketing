@@ -11,9 +11,13 @@ import IconAvatar from '../../elements/icon_avatar/IconAvatar';
 import CreditCard from '../../elements/credit_card/CreditCard';
 import CardProfileMenu from '../../elements/card_profile_menu/CardProfileMenu';
 import { useNavigate } from 'react-router-dom';
+import useLoginUser from '../../../states/useLoginUser';
 
 const CardProfile = () => {
     const navigate = useNavigate()
+    const { responseAPI } = useLoginUser()
+
+    // console.log(responseAPI);
     return (
         <>
             <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-lg w-fit px-7">
@@ -23,7 +27,7 @@ const CardProfile = () => {
                 <ButtonSelectPhoto>Select Photo</ButtonSelectPhoto>
 
                 <div className="">
-                    <p className='text-xl font-bold'>Mike Kowalski</p>
+                    <p className='text-xl font-bold'>{responseAPI.fullname}</p>
                 </div>
 
                 <div className="flex items-center justify-center ">

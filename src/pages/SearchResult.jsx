@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import CardTicket from '../components/fragments/card_ticket/CardTicket'
 import NavigationBar from '../components/fragments/Navbar'
 import useTicket from '../states/useTicket'
+import { useNavigate } from 'react-router-dom'
 
 const SearchResult = () => {
     const fetchTickets = useTicket(state => state.fetchTickets)
@@ -21,7 +22,17 @@ const SearchResult = () => {
         setShowTransit(!showTransit)
     }
 
+    const navigate = useNavigate()
     useEffect(() => {
+        const token = localStorage.getItem('token')
+        const role = atob(localStorage.getItem('role'))
+        console.log(role);
+        if (token == null) {
+            navigate('/login')
+        }
+        if (role == '"admin"') {
+            navigate("/admin/dashboard")
+        }
         fetchTickets(localStorage.getItem('token'))
     }, [])
 

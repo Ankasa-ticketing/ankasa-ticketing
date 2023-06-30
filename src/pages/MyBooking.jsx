@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavigationBar from "../components/fragments/Navbar";
 import CardProfile from '../components/fragments/card_profile/CardProfile';
 import Footer from '../components/fragments/Footer'
+import { useNavigate } from 'react-router-dom';
 
 const MyBooking = () => {
+    const navigate = useNavigate()
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        const role = atob(localStorage.getItem('role'))
+        if (token == null) {
+            navigate('/login')
+        }
+        if (role == '"admin"') {
+            navigate("/admin/dashboard")
+        }
+    }, [])
     return (
         <>
             <NavigationBar />

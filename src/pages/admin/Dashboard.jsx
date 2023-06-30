@@ -9,9 +9,12 @@ import FormAddAirline from '../../components/fragments/form_add_airline/FormAddA
 import SideBar from '../../components/fragments/sidebar/SideBar';
 import AirlinesTable from '../../components/fragments/table_airlines/AirlinesTable';
 import { useNavigate } from 'react-router-dom';
+import useSideBar from '../../states/useSideBar';
 
 const Dashboard = () => {
-    const [content, setContent] = useState(<AirlinesTable />)
+    // const [content, setContent] = useState(<AirlinesTable />)
+
+    const { content } = useSideBar()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -26,29 +29,12 @@ const Dashboard = () => {
         <>
             <div className="flex w-screen">
                 {/* Sidebard */}
-                <SideBar setter={setContent} />
+                {/* <SideBar setter={setContent} /> */}
+                <SideBar />
 
                 {/* Content */}
                 <div className="w-full py-3 px-7">
                     {content}
-                    {/* FromAddTicket */}
-                    {/* <div className="p-4 mt-4 rounded-lg shadow-md">
-                        {
-                            ticket &&
-                            <>
-                                <FormAddTicket />
-                            </>
-                        }
-
-                        {
-                            airline &&
-                            <>
-                                <FormAddAirline />
-                            </>
-                        }
-                    </div> */}
-
-                    {/* <AirlinesTable /> */}
                 </div>
             </div>
         </>

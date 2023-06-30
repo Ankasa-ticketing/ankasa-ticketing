@@ -4,29 +4,35 @@ import FormAddTicket from '../form_add_ticket/FormAddTicket';
 import FormAddAirline from '../form_add_airline/FormAddAirline';
 import AirlinesTable from '../table_airlines/AirlinesTable';
 import { useNavigate } from 'react-router-dom';
+import useSideBar from '../../../states/useSideBar';
 
-const SideBar = ({ setter }) => {
+const SideBar = () => {
     const [hidden, setHidden] = useState(false)
     const [ticket, setTicket] = useState(false)
     const [airline, setAirline] = useState(false)
+
+    const { setContent } = useSideBar()
 
     const navigate = useNavigate()
 
     const handleOnclick = () => {
         setHidden(!hidden)
-        setter(<AirlinesTable />)
+        // setter(<AirlinesTable />)
+        setContent(<AirlinesTable />)
     }
 
     const handleOnclickAddTicket = () => {
         setTicket(!ticket)
         setAirline(false)
-        setter(<FormAddTicket />)
+        // setter(<FormAddTicket />)
+        setContent(<FormAddTicket />)
     }
 
     const handleOnclickAddAirline = () => {
         setTicket(false)
         setAirline(!airline)
-        setter(<FormAddAirline />)
+        // setter(<FormAddAirline />)
+        setContent(<FormAddAirline />)
     }
 
     return (

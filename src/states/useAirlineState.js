@@ -8,11 +8,14 @@ const useAirlineState = create((set) => ({
     error: null,
     fecthAirlines: async (jwt) => {
         try {
-            const response = await axios.get('http://localhost:5000/airlines', {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            })
+            const response = await axios.get(
+                import.meta.env.VITE_API_URL + '/airlines',
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    },
+                }
+            )
 
             set({ data: await response.data.data })
             set({ loading: false })
@@ -23,7 +26,7 @@ const useAirlineState = create((set) => ({
     insertAirline: async (jwt, input) => {
         try {
             const res = await axios.post(
-                'http://localhost:5000/airlines',
+                import.meta.env.VITE_API_URL + '/airlines',
                 input,
                 {
                     headers: {
@@ -32,6 +35,37 @@ const useAirlineState = create((set) => ({
                 }
             )
 
+            set({ msgResponse: await res.data.msg })
+        } catch (error) {
+            set({ error })
+        }
+    },
+    updateAirline: async (jwt, input, id) => {
+        try {
+            const res = await axios.put(
+                import.meta.env.VITE_API_URL + `/airlines/${id}`,
+                input,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    },
+                }
+            )
+            set({ msgResponse: await res.data.msg })
+        } catch (error) {
+            set({ error })
+        }
+    },
+    deleteAirline: async (jwt, id) => {
+        try {
+            const res = await axios.delete(
+                import.meta.env.VITE_API_URL + `/airlines/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    },
+                }
+            )
             set({ msgResponse: await res.data.msg })
         } catch (error) {
             set({ error })
