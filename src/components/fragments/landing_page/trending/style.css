@@ -1,45 +1,45 @@
 .card-trend:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 .label-top {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.41);
-  color: #fff;
-  top: 25px;
-  right: 130px;
-  padding: 5px 10px 5px 10px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  border-radius: 10px;
-  text-transform: uppercase;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.41);
+    color: #fff;
+    top: 25px;
+    right: 130px;
+    padding: 5px 10px 5px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 10px;
+    text-transform: uppercase;
 }
 
 .trend {
-  padding: 0 !important;
+    padding: 0 !important;
+    margin: 5px !important;
 }
 .trend2 {
-  padding: 0 !important;
+    padding: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
 
 @media screen and (max-width: 992px) {
-  .contain {
-    margin-top: 100px !important;
-  }
-  .trend2 {
-    display: none !important;
-  }
+    .contain {
+        margin-top: 100px !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
-  .contain {
-    margin-top: 950px !important;
-  }
-  .title {
-    text-align: center !important;
-    justify-content: center !important;
-  }
-  .trend {
-    justify-content: center !important;
-  }
+    .contain {
+        margin-top: 950px !important;
+    }
+    .title {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    .trend {
+        justify-content: center !important;
+    }
 }
