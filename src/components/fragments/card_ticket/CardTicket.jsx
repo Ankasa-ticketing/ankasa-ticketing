@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const CardTicket = ({ airline, from_location, destination, departure, arrived, image }) => {
+const CardTicket = ({
+    airline,
+    from_location,
+    destination,
+    departure,
+    arrived,
+    image,
+}) => {
     const [showDetail, setShowDetails] = useState(false)
     function setDetail() {
         setShowDetails(!showDetail)
     }
     return (
         <>
-            <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] pl-10 pr-10">
+            <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] lg:pl-10 sm:pl-3 pr-10">
                 <div className="flex items-center pt-3">
                     {/* <img
                         src="/src/assets/images/garuda-indonesia.svg"
                         className="w-32"
                         alt=""
                     /> */}
-                    <img
-                        src={`${image}`}
-                        className="w-32"
-                        alt=""
-                    />
+                    <img src={`${image}`} className="w-32" alt="" />
                     <p>{airline}</p>
                 </div>
                 <div className="flex justify-between">
@@ -47,18 +50,9 @@ const CardTicket = ({ airline, from_location, destination, departure, arrived, i
                     </div>
                     <div>
                         <div className="flex gap-3">
-                            <img
-                                src="/src/assets/images/bag.svg"
-                                alt=""
-                            />
-                            <img
-                                src="/src/assets/images/food.svg"
-                                alt=""
-                            />
-                            <img
-                                src="/src/assets/images/wifi.svg"
-                                alt=""
-                            />
+                            <img src="/src/assets/images/bag.svg" alt="" />
+                            <img src="/src/assets/images/food.svg" alt="" />
+                            <img src="/src/assets/images/wifi.svg" alt="" />
                         </div>
                     </div>
                     <div className="flex items-center gap-5">
@@ -85,16 +79,14 @@ const CardTicket = ({ airline, from_location, destination, departure, arrived, i
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim
-                                id est laborum.
+                                incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum
+                                dolore eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum.
                             </p>
                         </div>
                     ) : (

@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react'
 import vector2 from '../assets/logo/vector 02.svg'
 import arrow from '../assets/logo/arrow.svg'
-import { useEffect, useState } from 'react'
 import CardTicket from '../components/fragments/card_ticket/CardTicket'
-import NavigationBar from '../components/fragments/navbar/Navbar'
+import NavigationBar from '../components/fragments/Navbar'
 import useTicket from '../states/useTicket'
 
-const SearchResult = () => {
+const SearchResults = () => {
     const fetchTickets = useTicket((state) => state.fetchTickets)
     const airlines = useTicket((state) => state.airlines)
     const loading = useTicket((state) => state.loading)
@@ -21,61 +21,30 @@ const SearchResult = () => {
         setShowTransit(!showTransit)
     }
 
-    useEffect(() => {
-        fetchTickets(localStorage.getItem('token'))
-    }, [])
-
     return (
-        <>
-            <NavigationBar />
+        <div className="container bg-[#F5F6FA]">
             <div className="bg-blue-500 bg-[url('/src/assets/logo/blueplane.svg')] bg-no-repeat h-44 rounded-b-lg">
-                <div className="flex w-full justify-between pt-[55px] px-10 pb-10 font-[Poppins]">
-                    <div>
-                        <img
-                            className="absolute left-[140px]"
-                            src={vector2}
-                            alt=""
-                        />
-                        <div className="flex gap-10 ml-[170px]">
+                <div className="grid grid-cols-2   pt-[55px]  pb-10 font-[Poppins]">
+                    <div className="flex px-10">
+                        <img className=" lg:ml-[140px]" src={vector2} alt="" />
+                        <div className=" ml-5 lg:ml-[50px] ">
                             <h6 className="text-white">INA</h6>
                             <img src={arrow} alt="" />
                             <h6 className="text-white">JPN</h6>
                         </div>
                     </div>
 
-                    <div className="">
+                    <div className="text-end mr-5">
                         <div>
                             <h5 className="text-white">Change search</h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="flex justify-between w-full pl-10 pr-10 gap-10 items-center bg-[#F5F6FA] px-6 font-[Poppins] pt-10">
-                <div className="flex">
-                    <div className="flex items-center gap-32">
-                        <h4>Filter</h4>
-                        <p className="m-0">Reset</p>
-                    </div>
-                </div>
-                <div className="flex items-center justify-between w-full">
-                    <div>
-                        <div className="flex items-center gap-2">
-                            <h4>Select Ticket</h4>
-                            <p className="m-0">(6 flight found)</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex items-center">
-                            <h6 className="m-0">Sort by</h6>
-                            <img src="/src/assets/logo/arrowtop.svg" alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div className="flex bg-[#F5F6FA]">
-                <div className="flex flex-auto w-8 bg-[#F5F6FA] h-[1250px]">
-                    <div className="rounded-2xl bg-white w-[400px] ml-24  m-[30px] shadow">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 ">
+                <div className=" lg:col-span-1 md:col-span-1 sm:col-span-2  flex   lg:justify-center md:justify-center  md:mx-auto   bg-[#F5F6FA] lg:h-[1250px] md:h-[1000px]    pt-[30px]">
+                    <div className="rounded-2xl bg-white w-[300px] lg:w-[350px] md:w-[200px]  shadow">
                         <div className="flex justify-between w-full pt-4 pl-5 pr-5">
                             <div className="font-bold text-[16px]">Transit</div>
                             <button onClick={transit}>
@@ -129,26 +98,17 @@ const SearchResult = () => {
                         <hr className="ml-10 mr-10" />
                     </div>
                 </div>
-                <div className="flex flex-auto w-96 pt-[30px] flex-col gap-10 bg-[#F5F6FA]">
-                    {/* {airlines.map((item) => (
-                        <>
-                            <CardTicket
-                                key={item.id}
-                                airline={item.name}
-                                from_location={item.from_location}
-                                destination={item.destination}
-                                image={item.image}
-                                departure={item.departure_time}
-                                arrived={item.time_arrived}
-                            />
-                        </>
-
-                    ))}
-                    ))} */}
+                <div className="col-span-2   pt-[30px] ">
+                    <div className="w-[387px] mx-auto md:w-[500px] md:mx-auto lg:w-[1000px] pt-10">
+                        <CardTicket />
+                    </div>
+                    <div className="w-[387px] mx-auto md:w-[500px] md:mx-auto lg:w-[1000px] pt-10">
+                        <CardTicket />
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
-export default SearchResult
+export default SearchResults
