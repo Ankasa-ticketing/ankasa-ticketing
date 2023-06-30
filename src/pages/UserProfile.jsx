@@ -1,7 +1,7 @@
 import React from 'react'
 import CardProfile from '../components/fragments/card_profile/CardProfile'
 import Profile from '../components/fragments/profile/Profile'
-import NavigationBar from '../components/fragments/Navbar'
+import NavigationBar from '../components/fragments/navbar/Navbar'
 import Footer from '../components/fragments/Footer'
 
 const UserProfile = () => {
@@ -14,7 +14,6 @@ const UserProfile = () => {
             </div>
             <Footer />
         </>
-
     )
 }
 
