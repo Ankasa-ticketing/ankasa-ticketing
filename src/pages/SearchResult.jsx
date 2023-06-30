@@ -2,13 +2,13 @@ import vector2 from '../assets/logo/vector 02.svg'
 import arrow from '../assets/logo/arrow.svg'
 import { useEffect, useState } from 'react'
 import CardTicket from '../components/fragments/card_ticket/CardTicket'
-import NavigationBar from '../components/fragments/Navbar'
+import NavigationBar from '../components/fragments/navbar/Navbar'
 import useTicket from '../states/useTicket'
 
 const SearchResult = () => {
-    const fetchTickets = useTicket(state => state.fetchTickets)
-    const airlines = useTicket(state => state.airlines)
-    const loading = useTicket(state => state.loading)
+    const fetchTickets = useTicket((state) => state.fetchTickets)
+    const airlines = useTicket((state) => state.airlines)
+    const loading = useTicket((state) => state.loading)
 
     const [showDetail, setShowDetails] = useState(false)
     const [showTransit, setShowTransit] = useState(false)
@@ -130,27 +130,19 @@ const SearchResult = () => {
                     </div>
                 </div>
                 <div className="flex flex-auto w-96 pt-[30px] flex-col gap-10 bg-[#F5F6FA]">
-
-                    {
-                        airlines.map((item) => (
-                            <>
-                                <CardTicket
-                                    key={item.id}
-                                    airline={item.name}
-                                    from_location={item.from_location}
-                                    destination={item.destination}
-                                    image={item.image}
-                                    departure={item.departure_time}
-                                    arrived={item.time_arrived}
-                                />
-                            </>
-                        ))
-                    }
-
-
-
-
-
+                    {airlines.map((item) => (
+                        <>
+                            <CardTicket
+                                key={item.id}
+                                airline={item.name}
+                                from_location={item.from_location}
+                                destination={item.destination}
+                                image={item.image}
+                                departure={item.departure_time}
+                                arrived={item.time_arrived}
+                            />
+                        </>
+                    ))}
                 </div>
             </div>
         </>

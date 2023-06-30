@@ -1,0 +1,13 @@
+@media (max-width: 480px) {
+    .find {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 135px;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+    }
+}
