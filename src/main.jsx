@@ -14,6 +14,7 @@ import Dashboard from './pages/admin/Dashboard'
 import SearchResult from './pages/SearchResult'
 import SearchResults from './pages/SearchResults'
 import MyBooking from './pages/MyBooking'
+import 'flowbite';
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         element: <ForgotedPassword />,
     },
     {
-        path: '/flight-detail',
+        path: '/flight-detail/:ticket_id',
         element: <FlightDetail />,
     },
     {

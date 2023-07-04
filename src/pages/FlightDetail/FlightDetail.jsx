@@ -9,323 +9,153 @@ import DropdownCity from '../../components/elements/dropdown_city/DropdownCity'
 import DropdownTitle from '../../components/elements/dropdown_title/DropdownTitle'
 import InputFormProfile from '../../components/elements/input_form_profile/InputFormProfile'
 import LabelName from '../../components/elements/labelname/LabelName'
+import { BiCheckCircle } from "react-icons/bi";
+import { FormatRupiah } from "@arismun/format-rupiah";
+import { AiFillWarning } from 'react-icons/ai'
+import { Dropdown } from 'flowbite-react'
 
 const FlightDetail = () => {
     return (
-        <>
-            <Container className="my-2">
-                <NavigationBar />
-            </Container>
-            <Row>
-                <div
-                    className="p-0 text-center position-relative w-100 "
-                    style={{
-                        backgroundColor: '#2395FF',
-                        height: '174px',
-                        borderRadius: '0px 0px 30px 30px',
-                        color: 'white',
-                        backgroundImage: 'url(src/assets/images/blueplane.svg)',
-                        backgroundRepeat: 'no-repeat',
-                    }}
-                >
-                    <Row>
-                        <Col
-                            xs={12}
-                            sm={12}
-                            md={5}
-                            className="my-5 d-none d-md-block"
-                        >
-                            <h4>Contact Person Detail</h4>
-                        </Col>
-                        <Col
-                            xs={12}
-                            sm={12}
-                            md={4}
-                            className="my-5 d-none d-md-block"
-                        >
-                            <h4>Flight Details</h4>
-                        </Col>
-                        <Col
-                            xs={12}
-                            sm={12}
-                            md={3}
-                            className="my-5 d-none d-md-block"
-                        >
-                            <h5>View Details</h5>
-                        </Col>
-                    </Row>
-                </div>
-            </Row>
-            <div
-                className="position-absolute w-100"
-                style={{ top: '220px', padding: '0 32px' }}
+        <div>
+            <NavigationBar />
+
+            {/* Header */}
+            {/* <div
+                className="w-full h-[20vh] bg-[#2395FF] rounded-es-[30px] rounded-ee-[30px] relative"
             >
-                <Container>
-                    <Row>
-                        <Col xs={12} sm={8} md={8}>
-                            <div
-                                className="shadow card"
-                                style={{
-                                    borderRadius: '15px',
-                                }}
-                            >
-                                <div className="card-body">
-                                    <Form style={{ padding: '50px 0' }}>
-                                        <Form.Group className="group">
-                                            <Form.Control
-                                                className="input"
-                                                type="text"
-                                                required
-                                            />
-                                            <span className="highlight"></span>
-                                            <span className="bar"></span>
-                                            <Form.Label htmlFor="name">
-                                                Full Name
-                                            </Form.Label>
-                                        </Form.Group>
-                                        <br />
-                                        <Form.Group className="group">
-                                            <Form.Control
-                                                className="input"
-                                                type="email"
-                                                required
-                                            />
-                                            <span className="highlight"></span>
-                                            <span className="bar"></span>
-                                            <Form.Label htmlFor="email">
-                                                Email
-                                            </Form.Label>
-                                        </Form.Group>
-                                        <br />
-                                        <Form.Group className="group">
-                                            <Form.Control
-                                                className="input"
-                                                type="number"
-                                                required
-                                            />
-                                            <span className="highlight"></span>
-                                            <span className="bar"></span>
-                                            <Form.Label htmlFor="phone">
-                                                Phone Number
-                                            </Form.Label>
-                                        </Form.Group>
-                                        <br />
-                                    </Form>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col xs={12} sm={4} md={4} className="space">
-                            <div
-                                className="shadow card"
-                                style={{
-                                    borderRadius: '15px',
-                                }}
-                            >
-                                <div className="card-body">
-                                    <Row className="align-items-center">
-                                        <Col md={5}>
-                                            <img src={garuda} alt="" />
-                                        </Col>
-                                        <Col md={7}>
-                                            <p>Garuda Indonesia</p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="mt-3 align-items-center">
-                                        <Col md={12} className="gap-5 d-flex">
-                                            <p className="m-0 fw-bold">
-                                                Medan(IDN)
-                                            </p>
-                                            <img src={pesawat} alt="" />
-                                            <p className="m-0 fw-bold">
-                                                Tokyo (JPN)
-                                            </p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="mt-3 align-items-center">
-                                        <Col md={8}>
-                                            <p
-                                                className="m-0"
-                                                style={{ color: '#6B6B6B' }}
-                                            >
-                                                Sunday,15 Agustus 2022
-                                            </p>
-                                        </Col>
-                                        <Col md={4}>
-                                            <p
-                                                className="m-0"
-                                                style={{ color: '#6B6B6B' }}
-                                            >
-                                                {' '}
-                                                12.33 - 15.21
-                                            </p>
-                                        </Col>
-                                    </Row>
-                                    <Row
-                                        style={{
-                                            color: '#2395FF',
-                                            fontFamily: 'Poppins',
-                                        }}
-                                        className="my-3"
-                                    >
-                                        <Col md={8} className="gap-3 d-flex">
-                                            <Form.Check type="radio" />{' '}
-                                            <p className="m-0">Refundable</p>
-                                        </Col>
-                                        <Col md={8} className="gap-3 d-flex">
-                                            <Form.Check type="radio" />{' '}
-                                            <p className="m-0">
-                                                Can Reschedule
-                                            </p>
-                                        </Col>
-                                    </Row>
-                                    <Row style={{ fontFamily: 'Poppins' }}>
-                                        <hr />
-                                        <Col
-                                            md={12}
-                                            className="my-4 d-flex justify-content-between"
-                                        >
-                                            <p className="fw-bold fs-6">
-                                                Total Payment
-                                            </p>
-                                            <p
-                                                className="fs-5"
-                                                style={{ color: '#2395FF' }}
-                                            >
-                                                $ 145,00
-                                            </p>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-                <Container>
-                    <h3 className="my-5">Passenger Detail</h3>
-                    <Row className="my-5 ">
-                        <Col md={6}>
-                            <div
-                                className="shadow card"
-                                style={{
-                                    height: '415px',
-                                    borderRadius: '15px',
-                                }}
-                            >
-                                <div className="card-body">
-                                    {/* Konten Card */}
-                                    <Alert
-                                        variant="primary"
-                                        className="p-2 m-0"
-                                    >
-                                        <div
-                                            className="d-flex justify-content-between"
-                                            style={{
-                                                color: '#595959',
-                                                fontFamily: 'Lato',
-                                            }}
-                                        >
-                                            <p className="m-0">
-                                                Passenger : 1 Adult
-                                            </p>
-                                            <div className="d-flex">
-                                                <p className="m-0">
-                                                    Same as contact person
-                                                </p>
-                                                <div className="form-check form-switch form-check-reverse">
-                                                    <input
-                                                        className="form-check-input"
-                                                        type="checkbox"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Alert>
+                <div className="absolute top-10 left-7 sm:left-20">
+                </div>
+            </div> */}
 
-                                    <div className="border-b border-[#D2C2FFAD] py-2 sm:w-1/2 md:w-3/4 ml-3 mt-5">
-                                        <p className="text-[#9B96AB] text-sm">
-                                            Title
-                                        </p>
-                                        <DropdownTitle />
-                                    </div>
-                                    <div>
-                                        <InputFormProfile
-                                            type={'text'}
-                                            label={'Full Name'}
-                                        />
-                                    </div>
+            <div className="flex flex-wrap sm:px-5">
+                <div className="px-4 w-fit sm:w-[62vw]">
+                    <p className='text-xl text-white'>Contact Person Details</p>
 
-                                    <div className="border-b border-[#D2C2FFAD] py-2 sm:w-1/2 md:w-3/4 ml-3 ">
-                                        <p className="text-[#9B96AB] text-sm">
-                                            City
-                                        </p>
-                                        <DropdownCity />
-                                    </div>
+                    <div className="px-5 py-5 bg-white rounded-md shadow-md">
+                        <InputFormProfile label={"Fullname"} />
+                        <InputFormProfile label={"Email"} />
+                        <InputFormProfile label={"Phone"} />
+
+                        <div className="flex items-center gap-2 px-5 py-2 mt-3 bg-red-200 rounded-md">
+                            <div className="text-red-500">
+                                <AiFillWarning />
+                            </div>
+                            <div className="">
+                                Make sure the customer data is correct.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full px-4 top-10 right-7 sm:right-20 sm:w-[30vw]">
+                    <p className='text-xl text-white'>Flight Details</p>
+
+                    <div className="bg-white rounded-md shadow-md ">
+                        <div className="px-5 pt-4 pb-2 border-b">
+                            <div className='flex gap-4'>
+                                <img src={garuda} alt="airlne" />
+                                <p className='text-[#595959]'>Garuda Indonesia</p>
+                            </div>
+
+                            <div className="flex mt-3 space-x-3 justify-evenly">
+                                <p className="">Bandung</p>
+                                <img src={pesawat} alt="pesawat" />
+                                <p className="">Jakarta</p>
+                            </div>
+
+                            <div className="text-center">
+                                <p className="text-xs text-[#595959] font-semibold">12:22 - 13:15</p>
+                            </div>
+
+                            <div className="">
+                                <div className="text-[#2395FF] flex items-center space-x-2">
+                                    <BiCheckCircle />
+                                    <span className=''>Refundable</span>
+                                </div>
+                                <div className="text-[#2395FF] flex items-center space-x-2">
+                                    <BiCheckCircle />
+                                    <span>Can reschedule</span>
                                 </div>
                             </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <h3 className="mb-5">Passenger Detail</h3>
-                        <Col md={6}>
-                            <div
-                                className="shadow card"
-                                style={{
-                                    borderRadius: '15px',
-                                }}
+                        </div>
+
+                        <div className="flex items-center justify-between px-5 py-2">
+                            <p className='font-semibold'>Total Payment</p>
+                            <p className="text-[#2395FF] font-semibold">
+                                <FormatRupiah value={200000} />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="px-4 mt-7">
+                    <p className="text-xl font-semibold">
+                        Passenger Details
+                    </p>
+                    <div className="px-5 py-5 bg-white rounded-lg shadow-md">
+                        <div className="flex items-center justify-between px-3 py-2 bg-teal-100 rounded-lg">
+                            <span className='font-semibold'>Passenger</span>
+                            <div className="flex space-x-2">
+                                <div className="text-sm">Some as contact person</div>
+                                <span className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" value="" className="sr-only peer" checked />
+                                    <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="flex items-center mt-3">
+                            <div className="border-b border-[#D2C2FFAD] md:w-96 ml-3">
+                                <p className="text-[#9B96AB] text-sm">Title</p>
+                                <input
+                                    type={"text"}
+                                    className="text-base border-none outline-none focus:border-none" disabled
+                                />
+                            </div>
+                            <Dropdown
+                                color={'#2395FF'}
                             >
-                                <div className="card-body">
-                                    <div className="d-flex justify-content-between">
-                                        <Form.Group
-                                            className=" d-flex"
-                                            controlId="formBasicCheckbox"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                id="isChecked"
-                                                name="isChecked"
-                                                aria-label="Checkbox for agreeing to terms and conditions"
-                                            />
-                                            <div
-                                                style={{ fontFamily: 'Lato' }}
-                                                className="fs-5 fw-bold"
-                                            >
-                                                <LabelName>
-                                                    Travel Insurance
-                                                </LabelName>
-                                            </div>
-                                        </Form.Group>
-                                        <div className="d-flex align-items-center">
-                                            <h5
-                                                style={{ color: '#2395FF' }}
-                                                className="m-0"
-                                            >
-                                                $2,00
-                                            </h5>
-                                            <p className="m-0">/pack</p>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div style={{ fontFamily: 'Poppins' }}>
-                                        <p>
-                                            Get travel compensation up to $
-                                            10.000,00
-                                        </p>
-                                    </div>
-                                </div>
+                                <Dropdown.Item>
+                                    Mr.
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    Mrs.
+                                </Dropdown.Item>
+                            </Dropdown>
+                        </div>
+                        <InputFormProfile label={"Fullname"} />
+                        <InputFormProfile label={"Nationality"} />
+                    </div>
+
+                    <div className="px-5 py-5 mt-4 bg-white rounded-lg shadow-md">
+                        <div className="flex justify-between border-b">
+                            <div class="flex items-center mb-4">
+                                <input
+                                    id="default-checkbox"
+                                    type="checkbox"
+                                    value=""
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                />
+                                <span for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Travel insurance</span>
                             </div>
-                            <div className="my-4">
-                                <PrimaryButton>
-                                    Proceed to payment
-                                </PrimaryButton>
+                            <div className="text-sm">
+                                <FormatRupiah value={20000} />
+                                <span>/pax</span>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
-                <div className="my-2">
-                    <Footer />
+                        </div>
+                    </div>
+
+                    <div className="px-24 hover:cursor-pointer">
+                        <div className="py-2 px-4 bg-[#2395FF] text-white text-center rounded-md mt-4 font-semibold">
+                            Procced to Payment
+                        </div>
+                    </div>
                 </div>
             </div>
-        </>
+
+            <div className='mt-12'>
+                <Footer />
+            </div>
+        </div>
     )
 }
 

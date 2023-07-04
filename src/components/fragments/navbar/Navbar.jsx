@@ -1,89 +1,51 @@
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
 import NavBrand from '../../elements/logo/NavBrand'
-import iconSearch from '../../../assets/logo/iconSearch.png'
-// import PrimaryButton from '../../elements/button/ButtonSubmit'
+import { AiOutlineMail } from "react-icons/ai";
+import { IoNotificationsOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom'
-import style from './navbar.module.css'
-import { GoMail } from 'react-icons/go'
-import { IoIosNotificationsOutline } from 'react-icons/io'
-import user from '../../../assets/images/profile.png'
 
 function NavigationBar() {
+    const { photo } = JSON.parse(localStorage.getItem('user'))
     return (
-        <Navbar expand="lg">
-            <Container>
-                <NavBrand />
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse
-                    id="navbarScroll"
-                    className="justify-content-around"
-                >
-                    <Nav navbarScroll>
-                        <Form>
-                            <div
-                                className="d-flex position-relative search"
-                                style={{ marginLeft: '70px' }}
-                            >
-                                <img
-                                    src={iconSearch}
-                                    alt="Search"
-                                    width={15}
-                                    height={15}
-                                    className="position-absolute"
-                                    style={{ top: '12px', left: '6px' }}
-                                />
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Whre you want to go?"
-                                    className="me-2 "
-                                    aria-label="Search"
-                                    style={{
-                                        textAlign: 'center',
-                                        width: '230px',
-                                        backgroundColor: '#F5F5F5',
-                                    }}
-                                />
-                            </div>
-                        </Form>
-                        <div className={`d-flex ${style.find}`}>
-                            <Link
-                                to="/tickets"
-                                className="text-decoration-none fw-bold"
-                                style={{
-                                    fontFamily: 'Poopin',
-                                    color: '#414141',
-                                }}
-                            >
-                                <Nav.Link as="div">Find Ticket</Nav.Link>
-                            </Link>
-                            <Link
-                                to="/my-booking"
-                                className="text-decoration-none fw-bold"
-                                style={{
-                                    fontFamily: 'Poopin',
-                                    color: '#414141',
-                                }}
-                            >
-                                <Nav.Link as="div">My Booking</Nav.Link>
-                            </Link>
+
+        <div
+            className="flex justify-between px-3 py-3 shadow-md sm:px-5"
+        >
+            <NavBrand />
+
+            <div className="flex items-center space-x-2 sm:space-x-7">
+                <form className='w-fit'>
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
-                    </Nav>
-                    <div className="d-flex justify-content-center gap-3">
-                        <GoMail size={30} />
-                        <IoIosNotificationsOutline size={30} />
-                        <img
-                            src={user}
-                            alt="profile"
-                            width={30}
-                            style={{ borderRadius: '50%', objectFit: 'cover' }}
+                        <input type="search"
+                            id="default-search"
+                            className="block w-full pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Where you want to go?"
+                            required
                         />
                     </div>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                </form>
+
+                <Link to={"/tickets"} className="font-semibold text-black no-underline hover:cursor-pointer">Find Ticket</Link>
+                <Link to={"/my-booking"} className="font-semibold text-black no-underline hover:cursor-pointer">My Booking</Link>
+            </div>
+
+            <div
+                className="flex items-center justify-center space-x-4 text-2xl"
+            >
+                <AiOutlineMail className='hidden sm:block' />
+                <IoNotificationsOutline className='hidden sm:block' />
+                <div className="p-[2px] bg-blue-500 rounded-full w-fit">
+                    <img
+                        src={photo}
+                        alt="profile"
+                        width={40}
+                        className='rounded-full'
+                    />
+                </div>
+            </div>
+        </div>
     )
 }
 

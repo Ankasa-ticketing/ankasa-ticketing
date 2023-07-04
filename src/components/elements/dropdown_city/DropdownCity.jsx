@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
+import useUser from '../../../states/useUser';
 
 const city = [
     "Jakarta",
@@ -16,22 +17,25 @@ const city = [
     "Palangkaraya"
 ]
 
-const DropdownCity = () => {
+const DropdownCity = ({ value }) => {
     const [option, setOption] = useState(false)
-    const [city, setCity] = useState("")
+    const [city, setCity] = useState(value)
+
+    const selectCity = useUser(state => state.setCity)
 
     const hanldeOnClick = () => {
         setOption(!option)
     }
 
     const handleOptions = (newCity) => {
+        selectCity(newCity)
         setCity(newCity)
         setOption(false)
     }
 
     return (
         <div className="flex justify-between">
-            <input type="text" value={city} className='text-base focus:outline-none' />
+            <input type="text" value={city} className='text-base border-none focus:outline-none focus:ring-0' />
             {
                 !option ?
                     <IoIosArrowDown className='text-blue-500' onClick={hanldeOnClick} />

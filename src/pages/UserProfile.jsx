@@ -8,7 +8,7 @@ const UserProfile = () => {
     return (
         <>
             <NavigationBar />
-            <div className="flex justify-between p-12 mt-12 mb-24">
+            <div className="flex flex-wrap p-12 mt-12 mb-24 justify-evenly">
                 <CardProfile />
                 <Profile />
             </div>

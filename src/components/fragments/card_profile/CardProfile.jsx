@@ -1,5 +1,4 @@
 import React from 'react'
-import photo from '../../../assets/images/profile.png'
 import { BsPlus } from "react-icons/bs";
 import { HiMapPin } from "react-icons/hi2";
 import { FaUserCircle } from "react-icons/fa";
@@ -11,24 +10,27 @@ import IconAvatar from '../../elements/icon_avatar/IconAvatar';
 import CreditCard from '../../elements/credit_card/CreditCard';
 import CardProfileMenu from '../../elements/card_profile_menu/CardProfileMenu';
 import { useNavigate } from 'react-router-dom';
+import useUser from '../../../states/useUser';
 
 const CardProfile = () => {
     const navigate = useNavigate()
+    const { fullname, photo, address } = useUser()
+
     return (
         <>
-            <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-lg w-fit px-7">
+            <div className="flex flex-col items-center justify-center gap-3 py-8 rounded-lg shadow-md w-fit px-7">
                 {/* IconAvatar */}
                 <IconAvatar src={photo} />
 
                 <ButtonSelectPhoto>Select Photo</ButtonSelectPhoto>
 
                 <div className="">
-                    <p className='text-xl font-bold'>Mike Kowalski</p>
+                    <p className='text-xl font-bold'>{fullname}</p>
                 </div>
 
                 <div className="flex items-center justify-center ">
                     <HiMapPin className='text-blue-500' />
-                    <p className='text-[#6B6B6B] text-sm'>Medan, Indonesia</p>
+                    <p className='text-[#6B6B6B] text-sm'>{address}</p>
                 </div>
 
                 <div className="flex justify-between w-full text-sm font-semibold">

@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { FormatRupiah } from "@arismun/format-rupiah";
 import { Link } from 'react-router-dom'
 
 const CardTicket = ({
+    id,
     airline,
     from_location,
     destination,
     departure,
     arrived,
+    price,
     image,
 }) => {
     const [showDetail, setShowDetails] = useState(false)
@@ -15,17 +18,14 @@ const CardTicket = ({
     }
     return (
         <>
-            <div className="max-w-[878px] bg-white shadow-xl h-auto rounded-[15px] flex flex-col gap-[35px] lg:pl-10 sm:pl-3 pr-10">
-                <div className="flex items-center pt-3">
-                    {/* <img
-                        src="/src/assets/images/garuda-indonesia.svg"
-                        className="w-32"
-                        alt=""
-                    /> */}
-                    <img src={`${image}`} className="w-32" alt="" />
+            <div className="sm:w-[890px] bg-white shadow-md h-auto rounded-lg flex flex-col gap-[35px] lg:pl-10 sm:pl-3 pr-10">
+                <div className="flex items-center pt-3 space-x-4 font-semibold">
+                    <img src={`${image}`} className="w-32" alt="logo airline" />
                     <p>{airline}</p>
                 </div>
-                <div className="flex justify-between">
+                <div
+                    className="flex flex-col items-center px-3 space-y-2 sm:flex-row sm:justify-between"
+                >
                     <div className="flex items-center gap-3">
                         <div>
                             {from_location}
@@ -56,17 +56,17 @@ const CardTicket = ({
                         </div>
                     </div>
                     <div className="flex items-center gap-5">
-                        <div>$214,00/pax</div>
-                        <div>
+                        <div><FormatRupiah value={price} /></div>
+                        <div className='hidden sm:block'>
                             <button className="bg-blue-400 w-[130px] h-[45px] text-white font-bold shadow-xl rounded-lg">
-                                <Link to={'/flight-detail'}>Select</Link>
+                                <Link to={`/flight-detail/${id}`}>Select</Link>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-3">
-                        <p className="m-0">View Details</p>
+                        <p className="px-2 m-0">View Details</p>
                         <button onClick={setDetail}>
                             <img
                                 src="/src/assets/images/btnback.svg"
@@ -75,7 +75,7 @@ const CardTicket = ({
                         </button>
                     </div>
                     {showDetail ? (
-                        <div>
+                        <div >
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit, sed do eiusmod tempor

@@ -1,40 +1,62 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DropdownCity from '../../elements/dropdown_city/DropdownCity';
 import InputFormProfile from '../../elements/input_form_profile/InputFormProfile';
+import useUser from '../../../states/useUser';
 
 const Profile = () => {
+    const [email, setEmail] = useState(useUser((state) => state.email))
+    const [fullname, setFullname] = useState(useUser((state) => state.fullname))
+    const [phone, setPhone] = useState(useUser((state) => state.phone))
+    const city = useUser((state) => state.city)
+    const [address, setAddress] = useState(useUser((state) => state.address))
+    const [postCode, setPostCode] = useState(useUser((state) => state.postCode))
+
+    const { updateProfile, msgResponse } = useUser()
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+
+        const input = {
+            fullname, email, phone, city, address, post_code: postCode
+        }
+
+        console.log(input);
+
+        updateProfile(localStorage.getItem("token"), input)
+    }
+
     return (
         <div className=''>
-            <div className="py-8 shadow-lg px-7">
+            <div className="py-8 shadow-md px-7">
+                <p className="text-lg text-green-500">{msgResponse}</p>
                 <p className="font-[500px] tracking-wide text-blue-500 uppercase">P r o f i l e</p>
 
                 <p className='mt-1 text-2xl font-semibold'>Profile</p>
 
-                <form className='flex flex-col mt-4'>
-                    <div className="flex justify-between">
-
+                <form className='flex flex-col mt-4' onSubmit={handleOnSubmit}>
+                    <div className="flex flex-wrap sm:justify-between">
                         <div className='flex flex-col space-y-3'>
                             <p className='text-base font-semibold'>Contact</p>
 
                             {/* InputFormprofile */}
-                            <InputFormProfile type={'text'} label={'Email'} value={"user@mail.com"} />
+                            <InputFormProfile type={'text'} label={'Email'} value={email} setter={(e) => setEmail(e.target.value)} />
 
-                            <InputFormProfile type={'text'} label={'Phone Number'} value={"+62099856757"} />
+                            <InputFormProfile type={'number'} label={'Phone Number'} value={phone} setter={(e) => setPhone(e.target.value)} />
                         </div>
 
                         <div className='flex flex-col space-y-3'>
                             <p className='text-base font-semibold'>Biodata</p>
 
-                            <InputFormProfile type={'text'} label={'Fullname'} value={"Fahmi Hadi"} />
+                            <InputFormProfile type={'text'} label={'Fullname'} value={fullname} setter={(e) => setFullname(e.target.value)} />
 
                             <div className="border-b border-[#D2C2FFAD] py-2 w-96 ml-3">
                                 <p className='text-[#9B96AB] text-sm'>City</p>
-                                <DropdownCity />
+                                <DropdownCity value={city} />
                             </div>
 
-                            <InputFormProfile type={'text'} label={'Address'} value={"Medan, Indonesi"} />
+                            <InputFormProfile type={'text'} label={'Address'} value={address} setter={(e) => setAddress(e.target.value)} />
 
-                            <InputFormProfile type={'number'} label={'Post Code'} value={"42111"} />
+                            <InputFormProfile type={'number'} label={'Post Code'} value={postCode} setter={(e) => setPostCode(e.target.value)} />
                         </div>
                     </div>
 

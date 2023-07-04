@@ -2,7 +2,7 @@ import logo from '../../../assets/logo/logo.png'
 
 const NavBrand = () => {
     return (
-        <>
+        <div className="hidden sm:block">
             <div className="d-flex">
                 <img
                     height={10}
@@ -10,9 +10,9 @@ const NavBrand = () => {
                     alt=""
                     className="object-fit-cover"
                 />
-                <span className="fw-bold p-2">Ankasa</span>
+                <span className="p-2 fw-bold">Ankasa</span>
             </div>
-        </>
+        </div>
     )
 }
 

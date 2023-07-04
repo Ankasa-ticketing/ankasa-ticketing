@@ -13,8 +13,9 @@ const useLoginUser = create((set) => ({
                 withCredentials: true,
             })
             localStorage.setItem('token', res.data.accessToken)
+            localStorage.setItem('user', JSON.stringify(res.data.user))
 
-            const localStorageItem = JSON.stringify(res.data.role)
+            const localStorageItem = JSON.stringify(res.data.user.role)
             const base64Item = btoa(localStorageItem)
             localStorage.setItem('role', base64Item)
             set({ responseAPI: await res.data })
