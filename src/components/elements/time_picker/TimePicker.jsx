@@ -14,10 +14,10 @@ const TimePicker = ({ children, setHour, setMinute }) => {
 
     return (
         <>
-            <div class="flex py-2 ml-3 items-center w-96 justify-between">
+            <div className="flex items-center justify-between py-2 ml-3 w-96">
                 <div className="">{children}</div>
-                <div class="inline-flex text-lg border rounded-md p-2">
-                    <select name="" id="" class="px-2 outline-none appearance-none bg-transparent">
+                <div className="inline-flex p-2 text-lg border rounded-md">
+                    <select name="" id="" className="px-2 bg-transparent outline-none appearance-none">
                         {
                             hour.map((_, i) => {
                                 if (i < 10) {
@@ -27,8 +27,8 @@ const TimePicker = ({ children, setHour, setMinute }) => {
                             })
                         }
                     </select>
-                    <span class="px-2">:</span>
-                    <select name="" id="" class="px-2 outline-none appearance-none bg-transparent">
+                    <span className="px-2">:</span>
+                    <select name="" id="" className="px-2 bg-transparent outline-none appearance-none">
                         {
                             minute.map((_, i) => {
                                 if (i < 10) {
