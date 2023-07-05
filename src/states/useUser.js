@@ -1,19 +1,18 @@
 import axios from 'axios'
 import { create } from 'zustand'
 
-const { photo, email, phone, city, fullname, address, post_code } = JSON.parse(
-    localStorage.getItem('user')
-)
+// const { photo, email, phone, city, fullname, address, post_code } = JSON.parse(
+//     localStorage.getItem('user')
+// )
 
 const useUser = create((set) => ({
-    email: email,
-    phone: phone,
-    fullname: fullname,
-    city: city,
-    address: address,
-    postCode: post_code,
-    photo: photo,
-
+    email: null,
+    phone: null,
+    fullname: null,
+    city: null,
+    address: null,
+    postCode: null,
+    photo: null,
     msgResponse: '',
     loading: true,
     error: null,

@@ -1,9 +1,13 @@
 import NavBrand from '../../elements/logo/NavBrand'
 import { AiOutlineMail } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function NavigationBar() {
+    const navigate = useNavigate()
+    if (!localStorage.getItem('user')) {
+        return navigate('/login')
+    }
     const { photo } = JSON.parse(localStorage.getItem('user'))
     return (
 

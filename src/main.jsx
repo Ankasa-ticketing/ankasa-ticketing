@@ -14,7 +14,7 @@ import Dashboard from './pages/admin/Dashboard'
 import SearchResult from './pages/SearchResult'
 import SearchResults from './pages/SearchResults'
 import MyBooking from './pages/MyBooking'
-import 'flowbite';
+// import 'flowbite';
 
 const router = createBrowserRouter([
     {
