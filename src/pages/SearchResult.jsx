@@ -5,27 +5,21 @@ import CardTicket from '../components/fragments/card_ticket/CardTicket'
 import NavigationBar from '../components/fragments/navbar/Navbar'
 import useTicket from '../states/useTicket'
 import FilterMenu from '../components/fragments/FilterMenu'
+import { TiChevronRightOutline, TiChevronLeftOutline } from "react-icons/ti";
 
 const SearchResult = () => {
     const fetchTickets = useTicket((state) => state.fetchTickets)
     const airlines = useTicket((state) => state.airlines)
+    const keyword = useTicket((state) => state.keyword)
+    const filterAirline = useTicket((state) => state.filterAirline)
     const loading = useTicket((state) => state.loading)
-    console.log(airlines);
 
-    const [showDetail, setShowDetails] = useState(false)
-    const [showTransit, setShowTransit] = useState(false)
-
-    function setDetail() {
-        setShowDetails(!showDetail)
-    }
-
-    function transit() {
-        setShowTransit(!showTransit)
-    }
+    const [page, setPage] = useState(1)
+    console.log({ page });
 
     useEffect(() => {
-        fetchTickets(localStorage.getItem('token'))
-    }, [])
+        fetchTickets(localStorage.getItem('token'), keyword, filterAirline, page)
+    }, [keyword, filterAirline, page])
 
     return (
         <>
@@ -58,52 +52,37 @@ const SearchResult = () => {
 
                     {/* Card Tickets */}
                     <div className="flex flex-col items-center px-3 space-y-4">
-                        <CardTicket
-                            airline={"Garuda Indonesia"}
-                            arrived={"12:00"} departure={"13:00"}
-                            from_location={"Bandung"}
-                            destination={"Jakarta"}
-                            id={1}
-                            image={"image"}
-                            price={200000}
-                        />
-                        <CardTicket
-                            airline={"Garuda Indonesia"}
-                            arrived={"12:00"} departure={"13:00"}
-                            from_location={"Bandung"}
-                            destination={"Jakarta"}
-                            id={1}
-                            image={"image"}
-                            price={200000}
-                        />
-                        <CardTicket
-                            airline={"Garuda Indonesia"}
-                            arrived={"12:00"} departure={"13:00"}
-                            from_location={"Bandung"}
-                            destination={"Jakarta"}
-                            id={1}
-                            image={"image"}
-                            price={200000}
-                        />
-                        <CardTicket
-                            airline={"Garuda Indonesia"}
-                            arrived={"12:00"} departure={"13:00"}
-                            from_location={"Bandung"}
-                            destination={"Jakarta"}
-                            id={1}
-                            image={"image"}
-                            price={200000}
-                        />
+                        {airlines.map((item) => (
+                            <>
+                                <CardTicket
+                                    key={item.id}
+                                    id={item.id}
+                                    airline={item.name}
+                                    from_location={item.from_location}
+                                    destination={item.destination}
+                                    image={item.image}
+                                    departure={item.departure_time}
+                                    arrived={item.time_arrived}
+                                    price={item.price}
+                                    transit={item.transit}
+                                />
+                            </>
+
+                        ))}
                     </div>
 
                     {/* pagination */}
-                    <div className="flex items-center justify-center w-full py-3">
-                        <div className="w-10 h-10 bg-gray-400 rounded-lg">
-
+                    <div className="flex items-center justify-center w-full gap-3 py-3">
+                        <div
+                            onClick={() => setPage(page - 1)} style={page <= 1 ? { display: "none" } : { display: "" }}
+                            className="w-10 h-10 bg-[#2395FF] rounded-full flex items-center justify-center">
+                            <TiChevronLeftOutline className='text-3xl text-white' />
                         </div>
-                        <span className="mx-2 ">1</span>
-                        <div className="w-10 h-10 bg-gray-400 rounded-lg">
-
+                        <span className="mx-2 text-xl font-semibold">{page}</span>
+                        <div
+                            onClick={() => setPage(page + 1)}
+                            className="w-10 h-10 bg-[#2395FF] rounded-full flex items-center justify-center">
+                            <TiChevronRightOutline className='text-3xl text-white' />
                         </div>
                     </div>
                 </div>

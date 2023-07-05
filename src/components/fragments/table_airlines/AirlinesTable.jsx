@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import useAirlineState from '../../../states/useAirlineState'
+import useSideBar from '../../../states/useSideBar'
+import EditAirline from '../../../pages/admin/EditAirline'
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const AirlinesTable = () => {
     const { data, loading, error, msgResponse, fecthAirlines } = useAirlineState()
@@ -7,7 +11,7 @@ const AirlinesTable = () => {
     useEffect(() => {
         const token = localStorage.getItem('token')
         fecthAirlines(token)
-    }, [])
+    }, [msgResponse, data])
 
     console.log(data);
 
@@ -23,7 +27,7 @@ const AirlinesTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map(item => <AirlineCard image={item.image} name={item.name} />)}
+                        {data.map(item => <AirlineCard image={item.image} name={item.name} id={item.id} />)}
                     </tbody>
                 </table>
             </div>
@@ -32,7 +36,25 @@ const AirlinesTable = () => {
     )
 }
 
-const AirlineCard = ({ name, image }) => {
+const AirlineCard = ({ name, image, id }) => {
+    const token = localStorage.getItem('token')
+    const { setContent } = useSideBar()
+    const { deleteAirline } = useAirlineState()
+
+    const notify = () => {
+        toast(
+            ({ closeToast }) => (
+                <div>
+                    <p className="text-amber-500">Yakin untuk hapus?</p>
+                    <div className="flex space-x-3">
+                        <button className='hover:text-red-500' onClick={() => deleteAirline(token, id)}>OK</button>
+                        <button className='hover:text-blue-500' onClick={closeToast}>Close</button>
+                    </div>
+                </div>
+            )
+        )
+    }
+
     return (
         <tr className='h-fit'>
             <td className='h-fit'>
@@ -50,8 +72,15 @@ const AirlineCard = ({ name, image }) => {
 
             <td>
                 <div className="h-[100px] space-x-3 flex text-white items-center">
-                    <div className="px-3 py-2 rounded-md bg-amber-400 h-fit">Edit</div>
-                    <div className="px-3 py-2 bg-red-500 rounded-md h-fit">Delete</div>
+                    <div
+                        onClick={() => setContent(<EditAirline id={id} oldName={name} imageURL={image} />)}
+                        className="px-3 py-2 rounded-md bg-amber-400 h-fit hover:cursor-pointer"
+                    >Edit</div>
+                    <div
+                        onClick={notify}
+                        className="px-3 py-2 bg-red-500 rounded-md h-fit hover:cursor-pointer"
+                    >Delete</div>
+                    <ToastContainer />
                 </div>
             </td>
         </tr>

@@ -24,12 +24,15 @@ const LandingPage = () => {
     return (
         <>
             <NavigationBar />
+
             <Header />
-            <br />
+
             <Trending />
-            <br />
+
             <Top />
+
             <div className="mb-24"></div>
+
             <Footer />
         </>
     )

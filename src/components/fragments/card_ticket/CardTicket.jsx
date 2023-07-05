@@ -11,6 +11,7 @@ const CardTicket = ({
     arrived,
     price,
     image,
+    transit
 }) => {
     const [showDetail, setShowDetails] = useState(false)
     function setDetail() {
@@ -44,8 +45,9 @@ const CardTicket = ({
                     </div>
                     <div>
                         <div>
-                            <div>3 hours 11 minutes</div>
-                            <div className="text-center">1 transit</div>
+                            {/* <div>3 hours 11 minutes</div> */}
+                            {transit == 0 ? <div className="text-center">Direct</div> : <div className="text-center">{transit} transit</div>}
+
                         </div>
                     </div>
                     <div>

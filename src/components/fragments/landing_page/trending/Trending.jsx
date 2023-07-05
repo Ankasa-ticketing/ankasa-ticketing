@@ -6,10 +6,10 @@ import more from '../../../../assets/images/more.png'
 
 const Trending = () => {
     return (
-        <Container className="mx-auto mt-5 mb-5 contain">
+        <Container className="mx-auto mb-5 contain">
             <Row className="mx-5 mt-5 mb-5">
                 <Col lg={12}>
-                    <Row className="mb-5 mt-5 mx-auto title">
+                    <Row className="mx-auto mt-5 mb-5 title">
                         <Col md={6}>
                             <p
                                 className="fw-semibold text-primary"
@@ -32,13 +32,13 @@ const Trending = () => {
 
                 <Col
                     lg={4}
-                    className="d-flex justify-content-center trend2 mb-5 "
+                    className="mb-5 d-flex justify-content-center trend2 "
                 >
                     <Card
-                        className="mx-2 card-trend shadow  "
+                        className="mx-2 shadow card-trend "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -67,21 +67,21 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>
                         </Card.Body>
                     </Card>
                     <Card
-                        className="mx-2 card-trend shadow d-none d-sm-block "
+                        className="mx-2 shadow card-trend d-none d-sm-block "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -110,11 +110,11 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>
@@ -123,13 +123,13 @@ const Trending = () => {
                 </Col>
                 <Col
                     lg={4}
-                    className="d-flex justify-content-center trend2 mb-5"
+                    className="mb-5 d-flex justify-content-center trend2"
                 >
                     <Card
-                        className="mx-2 card-trend shadow  "
+                        className="mx-2 shadow card-trend "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -158,21 +158,21 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>
                         </Card.Body>
                     </Card>
                     <Card
-                        className="mx-2 card-trend shadow d-none d-sm-block "
+                        className="mx-2 shadow card-trend d-none d-sm-block "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -201,11 +201,11 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>
@@ -214,13 +214,13 @@ const Trending = () => {
                 </Col>
                 <Col
                     lg={4}
-                    className="d-flex justify-content-center trend2 mb-5"
+                    className="mb-5 d-flex justify-content-center trend2"
                 >
                     <Card
-                        className="mx-2 card-trend shadow  "
+                        className="mx-2 shadow card-trend "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -249,21 +249,21 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>
                         </Card.Body>
                     </Card>
                     <Card
-                        className="mx-2 card-trend shadow d-none d-sm-block "
+                        className="mx-2 shadow card-trend d-none d-sm-block "
                         style={{ width: '15rem', borderRadius: '10px' }}
                     >
-                        <div className="mt-3  ">
+                        <div className="mt-3 ">
                             <img
                                 src={japan}
                                 className="mx-auto"
@@ -292,11 +292,11 @@ const Trending = () => {
                                         <img
                                             src={more}
                                             alt=""
-                                            className="h-75 mt-1"
+                                            className="mt-1 h-75"
                                         />
                                     </Col>
                                 </Row>
-                                <div className="label-top shadow-sm">
+                                <div className="shadow-sm label-top">
                                     22 Airlines
                                 </div>
                             </Card.Title>

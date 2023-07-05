@@ -14,7 +14,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <footer className="footer text-black">
+      <footer className="ml-5 text-black footer">
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-md-6">
@@ -36,10 +36,10 @@ const Footer = () => {
               style={{ fontFamily: "Poppins" }}
             >
               <h5 className="fw-bold">Features</h5>
-              <div className="d-flex flex-column my-5">
+              <div className="my-5 d-flex flex-column">
                 <Link
                   to="/"
-                  className="text-decoration-none mb-2"
+                  className="mb-2 text-decoration-none"
                   style={{ color: "#6B6B6B" }}
                 >
                   Find Ticket
@@ -47,7 +47,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-decoration-none mb-2"
+                  className="mb-2 text-decoration-none"
                   style={{ color: "#6B6B6B" }}
                 >
                   My Booking
@@ -55,7 +55,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-decoration-none mb-2"
+                  className="mb-2 text-decoration-none"
                   style={{ color: "#6B6B6B" }}
                 >
                   Chat
@@ -67,8 +67,8 @@ const Footer = () => {
               style={{ fontFamily: "Poppins" }}
             >
               <h5 className="fw-bold">Download Ankasa App</h5>
-              <div className="d-flex flex-column my-5">
-                <img src={appstore} alt="" className="w-50 mb-3" />
+              <div className="my-5 d-flex flex-column">
+                <img src={appstore} alt="" className="mb-3 w-50" />
                 <img src={playstore} alt="" className="w-50" />
               </div>
             </div>
@@ -78,7 +78,7 @@ const Footer = () => {
             >
               <h5 className="fw-bold">Follow Us</h5>
               <div
-                className="d-flex my-5 gap-3"
+                className="gap-3 my-5 d-flex"
                 style={{ fontSize: "24px", color: "#6B6B6B" }}
               >
                 <FiFacebook />

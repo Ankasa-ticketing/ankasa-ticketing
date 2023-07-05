@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import logo from '../../../assets/logo/logo.png'
 
 const NavBrand = () => {
+    const navigate = useNavigate()
     return (
-        <div className="hidden sm:block">
+        <div className="hidden sm:block hover:cursor-pointer" onClick={() => navigate("/home")}>
             <div className="d-flex">
                 <img
                     height={10}
