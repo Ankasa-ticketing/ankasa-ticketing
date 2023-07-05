@@ -22,7 +22,7 @@ const FormLogin = () => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     const role = atob(localStorage.getItem('role'))
-    // console.log(role);
+    console.log(role);
     if (token) {
       switch (role) {
         case '"admin"':

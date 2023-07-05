@@ -1,11 +1,13 @@
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
 
 const NavBrand = () => {
+  const navigate = useNavigate()
   return (
     <>
-      <div className="d-flex">
-        <img height={10} src={logo} alt="" className="object-fit-cover" />
-        <span className="fw-bold p-2">Ankasa</span>
+      <div className="flex items-center justify-center space-x-2 hover:cursor-pointer" onClick={() => navigate("/home")}>
+        <img height={10} src={logo} alt="" className="" />
+        <div className="text-xl font-semibold text-blue-500 no-underline">Ankasa</div>
       </div>
     </>
   );
