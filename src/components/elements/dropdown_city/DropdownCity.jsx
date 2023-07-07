@@ -31,6 +31,7 @@ const DropdownCity = ({ value }) => {
         selectCity(newCity)
         setCity(newCity)
         setOption(false)
+        // console.log(city);
     }
 
     return (

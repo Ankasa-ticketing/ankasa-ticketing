@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <FlightDetail />,
     },
     {
-        path: '/detail-booking',
+        path: '/detail-booking/:booking_id',
         element: <DetailBooking />,
     },
     {

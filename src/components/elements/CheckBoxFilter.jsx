@@ -7,7 +7,7 @@ const CheckBoxFilter = ({ label, airliineID }) => {
         <div className="flex items-center justify-between w-full">
             <span
                 htmlFor="default-checkbox"
-                className="text-base font-medium text-gray-900 dark:text-gray-300"
+                className="text-base font-medium text-gray-900"
             >
                 {label}</span>
             <input

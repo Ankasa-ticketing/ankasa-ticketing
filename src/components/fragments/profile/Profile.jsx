@@ -4,14 +4,14 @@ import InputFormProfile from '../../elements/input_form_profile/InputFormProfile
 import useUser from '../../../states/useUser';
 
 const Profile = () => {
-    const [email, setEmail] = useState(useUser((state) => state.email))
-    const [fullname, setFullname] = useState(useUser((state) => state.fullname))
-    const [phone, setPhone] = useState(useUser((state) => state.phone))
-    const city = useUser((state) => state.city)
-    const [address, setAddress] = useState(useUser((state) => state.address))
-    const [postCode, setPostCode] = useState(useUser((state) => state.postCode))
+    const [email, setEmail] = useState(JSON.parse(localStorage.getItem('user')).email)
+    const [fullname, setFullname] = useState(JSON.parse(localStorage.getItem('user')).fullname)
+    const [phone, setPhone] = useState(JSON.parse(localStorage.getItem('user')).phone)
+    const [address, setAddress] = useState(JSON.parse(localStorage.getItem('user')).address)
+    const [postCode, setPostCode] = useState(JSON.parse(localStorage.getItem('user')).post_code)
 
-    const { updateProfile, msgResponse } = useUser()
+    const { updateProfile, msgResponse, city } = useUser()
+    console.log(city);
 
     const handleOnSubmit = (e) => {
         e.preventDefault()

@@ -36,7 +36,7 @@ function NavigationBar() {
                         </div>
                         <input type="search"
                             id="default-search"
-                            className="block w-full pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="block w-full py-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg px-7 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Where you want to go?"
                             value={keyword}
                             onChange={(e) => setKeyword(e.target.value)}
@@ -53,7 +53,10 @@ function NavigationBar() {
             >
                 <AiOutlineMail className='hidden sm:block' />
                 <IoNotificationsOutline className='hidden sm:block' />
-                <div className="p-[2px] bg-blue-500 rounded-full w-fit">
+                <div
+                    onClick={() => navigate("/profile")}
+                    className="p-[2px] bg-blue-500 rounded-full w-fit hover:cursor-pointer"
+                >
                     <img
                         src={photo}
                         alt="profile"

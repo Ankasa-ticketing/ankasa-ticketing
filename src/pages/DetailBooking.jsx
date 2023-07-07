@@ -6,8 +6,19 @@ import barcode from '../assets/images/barcode.png'
 import garuda from '../assets/logo/garuda.svg'
 import pesawat from '../assets/logo/pesawat.svg'
 import styles from './DetailBooking.module.css'
+import useBooking from '../states/useBooking'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const DetailBooking = () => {
+    let { booking_id } = useParams();
+    const { fecthOne, booking } = useBooking()
+
+    useEffect(() => {
+        fecthOne(localStorage.getItem("token"), booking_id)
+    }, [])
+    console.log(booking);
+
     return (
         <>
             <NavigationBar />
@@ -28,7 +39,7 @@ const DetailBooking = () => {
                                 borderRadius: '20px',
                             }}
                         >
-                            <h3 className="text-start fw-bolder m-4">
+                            <h3 className="m-4 text-start fw-bolder">
                                 Booking Pass
                             </h3>
                             <Row className={styles.border_ticket}>
@@ -39,14 +50,14 @@ const DetailBooking = () => {
                                         borderRight: '3px dotted #E5E5E5',
                                     }}
                                 >
-                                    <Row className=" mb-5 w-100">
+                                    <Row className="mb-5 w-100">
                                         {/* Image */}
                                         <Col
                                             md={6}
                                             className="d-flex align-items-center"
                                         >
                                             <img
-                                                src={garuda}
+                                                src={booking.image}
                                                 alt="Image"
                                                 style={{
                                                     width: '100px',
@@ -59,7 +70,7 @@ const DetailBooking = () => {
                                             className="d-flex align-items-center"
                                         >
                                             {/* Text */}
-                                            <p className="m-0 fw-bold">INA</p>
+                                            <p className="m-0 fw-bold">{booking.from_location}</p>
                                         </Col>
                                         <Col
                                             md={2}
@@ -68,14 +79,14 @@ const DetailBooking = () => {
                                             <img
                                                 src={pesawat}
                                                 alt=""
-                                                className="mx-2"
+                                                className="mx-3"
                                             />
                                         </Col>
                                         <Col
                                             md={2}
                                             className="d-flex align-items-center"
                                         >
-                                            <p className="m-0 fw-bold">JPN</p>
+                                            <p className="m-0 fw-bold">{booking.destination}</p>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -87,9 +98,9 @@ const DetailBooking = () => {
                                             }}
                                         >
                                             <p className="m-0">Code</p>
-                                            <p className="m-0">AB-221</p> <br />
+                                            <p className="m-0">{booking.code}</p> <br />
                                             <p className="m-0">Terminal</p>
-                                            <p className="m-0">A</p>
+                                            <p className="m-0">{booking.terminal}</p>
                                         </Col>
                                         <Col
                                             md={6}
@@ -99,13 +110,13 @@ const DetailBooking = () => {
                                             }}
                                         >
                                             <p className="m-0">Class</p>
-                                            <p className="m-0 ">Economy</p>{' '}
+                                            <p className="m-0 ">{booking.class}</p>{' '}
                                             <br />
                                             <p className="m-0">Gate</p>
-                                            <p className="m-0">221</p>
+                                            <p className="m-0">{booking.gate}</p>
                                         </Col>
                                     </Row>
-                                    <div className="text-start mt-4">
+                                    <div className="mt-4 text-start">
                                         <p
                                             className="m-0"
                                             style={{ color: '#A5A5A5' }}
@@ -116,7 +127,7 @@ const DetailBooking = () => {
                                             className="m-0"
                                             style={{ color: '#595959' }}
                                         >
-                                            Monday,20 July 2020 - 12.33
+                                            Monday,20 July 2020 - {booking.departure_time}
                                         </p>
                                     </div>
                                 </Col>

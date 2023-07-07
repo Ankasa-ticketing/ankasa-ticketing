@@ -17,7 +17,7 @@ const TimePicker = ({ children, setHour, setMinute }) => {
             <div className="flex items-center justify-between py-2 ml-3 w-96">
                 <div className="">{children}</div>
                 <div className="inline-flex p-2 text-lg border rounded-md">
-                    <select name="" id="" className="px-2 bg-white outline-none appearance-none">
+                    <select name="" id="" className="px-2 bg-transparent outline-none appearance-none">
                         {
                             hour.map((_, i) => {
                                 if (i < 10) {

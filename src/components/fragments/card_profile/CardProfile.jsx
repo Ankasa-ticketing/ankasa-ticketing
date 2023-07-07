@@ -14,7 +14,8 @@ import useUser from '../../../states/useUser';
 
 const CardProfile = () => {
     const navigate = useNavigate()
-    const { fullname, photo, address } = useUser()
+    const { photo, fullname } = JSON.parse(localStorage.getItem('user'))
+    const { address } = useUser()
 
     return (
         <>
@@ -28,17 +29,17 @@ const CardProfile = () => {
                     <p className='text-xl font-bold'>{fullname}</p>
                 </div>
 
-                <div className="flex items-center justify-center ">
+                <div className="flex items-center justify-center gap-2">
                     <HiMapPin className='text-blue-500' />
-                    <p className='text-[#6B6B6B] text-sm'>{address}</p>
+                    <span className='text-[#6B6B6B] text-sm'>{address}</span>
                 </div>
 
                 <div className="flex justify-between w-full text-sm font-semibold">
                     <p>Cards</p>
 
-                    <div className="flex items-center text-blue-500">
-                        <BsPlus />
-                        <p>Add</p>
+                    <div className="flex items-start text-blue-500 ">
+                        <BsPlus className='text-lg' />
+                        <span>Add</span>
                     </div>
                 </div>
 
