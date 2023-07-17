@@ -1,9 +1,13 @@
-import React from 'react'
+// import FlightDetail from "./pages/FlightDetail";
+import SearchResult from "./pages/SearchResult";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      {/* <FlightDetail /> */}
+      <SearchResult />
+    </>
+  );
+};
 
-export default App
+export default App;
