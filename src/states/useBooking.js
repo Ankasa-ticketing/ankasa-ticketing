@@ -22,12 +22,12 @@ const useBooking = create((set) => ({
                     withCredentials: true,
                 }
             )
-
+            // console.log(data.data.data);
             const x = {
-                ...data.data.data[0],
-                time_arrived: ubahFormatWaktu(data.data.data[0].time_arrived),
+                ...data.data.data,
+                time_arrived: ubahFormatWaktu(data.data.data.time_arrived),
                 departure_time: ubahFormatWaktu(
-                    data.data.data[0].departure_time
+                    data.data.data.departure_time
                 ),
             }
 

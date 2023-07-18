@@ -10,7 +10,7 @@ import ubahFormatWaktu from '../utils/time_format'
 
 const MyBooking = () => {
     const { myBooking, booking, message, clearerMsg } = useBooking()
-
+    console.log(booking);
     useEffect(() => {
         myBooking(localStorage.getItem("token"))
     }, [])

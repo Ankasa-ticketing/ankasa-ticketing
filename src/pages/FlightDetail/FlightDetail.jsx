@@ -17,7 +17,7 @@ const FlightDetail = () => {
     const navigate = useNavigate()
 
     const { ticket, fetchData, bookingTicket, message } = useBooking()
-    console.log(message);
+    // console.log(ticket);
 
     const [titleP, setTitleP] = useState('Mr.')
     const [checked, setChecked] = useState(false)
