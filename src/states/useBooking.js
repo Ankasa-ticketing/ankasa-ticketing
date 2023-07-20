@@ -4,7 +4,7 @@ import ubahFormatWaktu from '../utils/time_format'
 
 const useBooking = create((set) => ({
     ticket: [],
-    booking: [],
+    booking: null,
     message: '',
     loading: false,
     error: null,

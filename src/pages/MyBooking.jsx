@@ -15,7 +15,10 @@ const MyBooking = () => {
         myBooking(localStorage.getItem("token"))
     }, [])
 
-    let dataKeys = Object.keys(booking)
+    let dataKeys = Object.keys([])
+    if (booking) {
+        dataKeys = Object.keys(booking)
+    }
 
     return (
         <>
@@ -32,7 +35,7 @@ const MyBooking = () => {
 
                     {/* Booking Card */}
                     <div className="flex flex-col space-y-3">
-                        {dataKeys.map(key => {
+                        {booking && dataKeys.map(key => {
                             let item = booking[key]
 
                             return <BookingCard
@@ -46,7 +49,6 @@ const MyBooking = () => {
                                 departureTime={item.departure_time}
                             />
                         })}
-
                     </div>
                 </div>
             </div>
