@@ -14,7 +14,7 @@ const useTicket = create((set) => ({
         set({ loading: true })
         try {
             const res = await axios.post(
-                'http://localhost:5000/tickets',
+                import.meta.env.VITE_API_URL + '/tickets',
                 input,
                 {
                     headers: {
@@ -39,7 +39,7 @@ const useTicket = create((set) => ({
         try {
             const res = await axios.get(
                 import.meta.env.VITE_API_URL +
-                    `/tickets?limit=${limit}&page=${page}&search=${keyword}&airline=${airline}`,
+                `/tickets?limit=${limit}&page=${page}&search=${keyword}&airline=${airline}`,
                 {
                     headers: {
                         Authorization: `Bearer ${jwt}`,

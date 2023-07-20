@@ -9,7 +9,7 @@ const useRegisterUser = create((set) => ({
         set({ loading: true })
         try {
             const res = await axios.post(
-                'http://localhost:5000/register',
+                import.meta.env.VITE_API_URL + '/register',
                 input
             )
             set({ responseAPI: await res.data.msg })

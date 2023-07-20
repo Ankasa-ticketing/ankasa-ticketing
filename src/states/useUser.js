@@ -30,7 +30,7 @@ const useUser = create((set) => ({
 
     updateProfile: async (jwt, input) => {
         try {
-            const res = await axios.put('http://localhost:5000/users', input, {
+            const res = await axios.put(import.meta.env.VITE_API_URL + '/users', input, {
                 headers: {
                     Authorization: `Bearer ${jwt}`,
                 },

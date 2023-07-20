@@ -9,7 +9,7 @@ const useLoginUser = create((set) => ({
     login: async (input) => {
         set({ loading: true })
         try {
-            const res = await axios.post('http://localhost:5000/login', input, {
+            const res = await axios.post(import.meta.env.VITE_API_URL + '/login', input, {
                 withCredentials: true,
             })
             localStorage.setItem('token', res.data.accessToken)
