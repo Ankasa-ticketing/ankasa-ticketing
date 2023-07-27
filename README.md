@@ -175,7 +175,6 @@ Contributions are what make the open source community such an amazing place to b
 <a href = "https://github.com/Ankasa-ticketing/ankasa-ticketing/graphs/contributors">
   <img src="https://avatars.githubusercontent.com/u/68759989?s=60&amp;v=4" class="avatar avatar-user" alt="Fahmi Hadi" width="38" height="38">
   <img src="https://avatars.githubusercontent.com/u/121668350?s=60&amp;v=4" class="avatar avatar-user" alt="Ahmad Ubaildillah" width="38" height="38">
-  <img src="https://avatars.githubusercontent.com/u/53255114?s=60&amp;v=4" class="avatar avatar-user" alt="firyal-salsa" width="38" height="38">
   <img src="https://avatars.githubusercontent.com/u/119777042?s=60&amp;v=4" class="avatar avatar-user" alt="Alif" width="38" height="38">
 </a>
 
