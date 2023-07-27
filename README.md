@@ -15,7 +15,7 @@
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://bit.ly/food-recipes">View Demo</a>
+    <a href="https://ankasa-ticketing-three.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/Ankasa-ticketing/ankasa-ticketing/issues">Report Bug</a>
     ·
@@ -167,7 +167,7 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- :rocket: [`Web Service`](https://mama-recipe.herokuapp.com/) -->
 
-:rocket: [`Demo Ankasa Ticketing`](https://food-recipes-teal.vercel.app/)
+:rocket: [`Demo Ankasa Ticketing`](https://ankasa-ticketing-three.vercel.app)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
